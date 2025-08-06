@@ -82,7 +82,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
       {/* Quick Action Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* New Cut Job Card */}
-        <Card className="bg-white border-solv border-black rounded-lg transition-colors duration-200 rounded-lg cursor-pointer" onClick={onNewJob}>
+        <Card className="bg-white border-solv-thick border-black rounded-lg transition-colors duration-200 rounded-lg cursor-pointer" onClick={onNewJob}>
           <CardHeader className="text-center p-6">
             <div className="mx-auto w-16 h-16 bg-[#A6FFE2] rounded-full flex items-center justify-center mb-4">
               <Scissors className="h-8 w-8 text-black" />
@@ -98,7 +98,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
         </Card>
 
         {/* Inventory Management Card */}
-        <Card className={`bg-white border-solv border-black transition-colors duration-200 rounded-lg cursor-pointer`} onClick={onManageInventory}>
+        <Card className={`bg-white border-solv-thick border-black transition-colors duration-200 rounded-lg cursor-pointer`} onClick={onManageInventory}>
           <CardHeader className="text-center p-6">
             <div className={`mx-auto w-16 h-16 ${reorderAlerts.length > 0 ? 'bg-[#FF8C82]' : 'bg-[#A6FFE2]'} rounded-full flex items-center justify-center mb-4 relative`}>
               <Warehouse className="h-8 w-8 text-white" />
@@ -131,7 +131,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
         </Card>
 
         {/* Job Manager Card */}
-        <Card className="bg-white border-solv border-black rounded-lg transition-colors duration-200 rounded-lg cursor-pointer" onClick={onViewJobs}>
+        <Card className="bg-white border-solv-thick border-black rounded-lg transition-colors duration-200 rounded-lg cursor-pointer" onClick={onViewJobs}>
           <CardHeader className="text-center p-6">
             <div className="mx-auto w-16 h-16 bg-[#C5A6FF] rounded-full flex items-center justify-center mb-4 relative">
               <Eye className="h-8 w-8 text-white" />
@@ -159,7 +159,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <Card className="bg-white border-solv border-black rounded-lg transition-colors duration-200 rounded-lg cursor-pointer" onClick={onViewJobs}>
+        <Card className="bg-white border-solv-thick border-black rounded-lg transition-colors duration-200 rounded-lg cursor-pointer" onClick={onViewJobs}>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-black uppercase">Completed Today</CardTitle>
             <CheckCircle2 className="h-5 w-5 text-[#A6FFE2]" />
@@ -172,7 +172,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
           </CardContent>
         </Card>
 
-        <Card className="bg-white border-solv border-black rounded-lg transition-colors duration-200 rounded-lg cursor-pointer" onClick={onViewJobs}>
+        <Card className="bg-white border-solv-thick border-black rounded-lg transition-colors duration-200 rounded-lg cursor-pointer" onClick={onViewJobs}>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-black uppercase">Pending Jobs</CardTitle>
             <Clock className="h-5 w-5 text-[#C5A6FF]" />
@@ -185,7 +185,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
           </CardContent>
         </Card>
 
-        <Card className="bg-white border-solv border-black rounded-lg transition-colors duration-200 cursor-pointer" onClick={onManageInventory}>
+        <Card className="bg-white border-solv-thick border-black rounded-lg transition-colors duration-200 cursor-pointer" onClick={onManageInventory}>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-black uppercase">
               Low Stock Items
@@ -202,7 +202,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
           </CardContent>
         </Card>
 
-        <Card className="bg-white border-solv border-black rounded-lg transition-colors duration-200">
+        <Card className="bg-white border-solv-thick border-black rounded-lg transition-colors duration-200">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-black uppercase">Today's Revenue</CardTitle>
             <TrendingUp className="h-5 w-5 text-[#A6FFE2]" />
@@ -260,7 +260,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
       {/* Recent Activity Sections */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Pending Jobs */}
-        <Card className="bg-white border-solv border-black rounded-lg transition-colors duration-200">
+        <Card className="bg-white border-solv-thick border-black rounded-lg transition-colors duration-200">
           <CardHeader className="bg-white border-b border-black p-6">
             <CardTitle className="flex items-center gap-2 text-black uppercase">
               <Clock className="h-5 w-5 text-[#C5A6FF]" />
@@ -282,7 +282,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
                 {pendingJobs.slice(0, 1).map(job => (
                   <div 
                     key={job.id} 
-                    className="p-6 bg-white rounded-lg border-solv border-black transition-colors duration-200 cursor-pointer"
+                    className="p-6 bg-white rounded-lg border-solv-thick border-black transition-colors duration-200 cursor-pointer"
                     onClick={onViewJobs}
                   >
                     <div className="space-y-2">
@@ -310,7 +310,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
         </Card>
 
         {/* Inventory Alert */}
-        <Card className="bg-white border-solv border-black rounded-lg transition-colors duration-200">
+        <Card className="bg-white border-solv-thick border-black rounded-lg transition-colors duration-200">
           <CardHeader className="bg-white border-b border-black p-6">
             <CardTitle className="flex items-center gap-2 text-black uppercase">
               <Package className="h-5 w-5 text-[#FF8C82]" />
@@ -328,7 +328,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
                 {reorderAlerts.slice(0, 1).map(alert => (
                   <div 
                     key={alert.materialId} 
-                    className="p-6 bg-white rounded-lg border-solv border-black transition-colors duration-200 cursor-pointer"
+                    className="p-6 bg-white rounded-lg border-solv-thick border-black transition-colors duration-200 cursor-pointer"
                     onClick={onManageInventory}
                   >
                     <div className="space-y-2">

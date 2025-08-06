@@ -33,6 +33,7 @@ export default {
       },
       borderWidth: {
         'solv': '2px',
+        'solv-thick': '3px',
       },
     },
   },

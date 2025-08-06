@@ -652,7 +652,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
       )}
 
       {/* Bulk Selection Controls */}
-      <Card className="bg-white border-solv border-black transition-colors duration-200 rounded-lg">
+      <Card className="bg-white border-solv-thick border-black transition-colors duration-200 rounded-lg">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-black uppercase">
             <CheckSquare className="h-6 w-6" />
@@ -717,91 +717,74 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
       </Card>
 
       {/* Supplier Ordering Section */}
-      <Card className="bg-white border-solv border-black transition-colors duration-200 rounded-lg">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-black uppercase">
-            <ShoppingCart className="h-6 w-6" />
-            Supplier Ordering Center
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-[#FF8C82] rounded-full flex items-center justify-center mx-auto mb-4">
-                <Zap className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="font-bold text-black mb-2 uppercase">Quick Order All</h3>
-              <p className="text-sm text-gray-600 mb-4">Order all low stock items at once</p>
-              <Button
-                onClick={() => setShowPurchaseOrders(true)}
-                disabled={reorderAlerts.length === 0}
-                className="bg-[#FF8C82] text-white border border-[#FF8C82] hover:bg-white hover:text-[#FF8C82] w-full"
-              >
-                <ShoppingCart className="h-4 w-4 mr-2" />
-                Order All ({reorderAlerts.length})
-              </Button>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Quick Order All Card */}
+        <Card className="bg-white border-solv-thick border-black transition-colors duration-200 rounded-lg cursor-pointer">
+          <CardHeader className="text-center p-6">
+            <div className="mx-auto w-16 h-16 bg-[#FF8C82] rounded-full flex items-center justify-center mb-4">
+              <Zap className="h-8 w-8 text-white" />
             </div>
+            <CardTitle className="text-black uppercase">Quick Order All</CardTitle>
+          </CardHeader>
+          <CardContent className="text-center">
+            <p className="text-gray-600 mb-4">Order all low stock items at once</p>
+            <Button
+              onClick={() => setShowPurchaseOrders(true)}
+              disabled={reorderAlerts.length === 0}
+              className="bg-[#FF8C82] text-white border border-[#FF8C82] hover:bg-white hover:text-[#FF8C82] w-full"
+            >
+              <ShoppingCart className="h-4 w-4 mr-2" />
+              Order All ({reorderAlerts.length})
+            </Button>
+          </CardContent>
+        </Card>
 
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-[#C5A6FF] rounded-full flex items-center justify-center mx-auto mb-4">
-                <FileText className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="font-bold text-black mb-2 uppercase">Generate Report</h3>
-              <p className="text-sm text-gray-600 mb-4">Create printable reorder report</p>
-              <Button
-                onClick={generateReorderReport}
-                disabled={reorderAlerts.length === 0}
-                variant="outline"
-                className="border-[#C5A6FF] text-[#C5A6FF] hover:bg-[#C5A6FF] hover:text-white w-full"
-              >
-                <Download className="h-4 w-4 mr-2" />
-                Generate Report
-              </Button>
+        {/* Generate Report Card */}
+        <Card className="bg-white border-solv-thick border-black transition-colors duration-200 rounded-lg cursor-pointer">
+          <CardHeader className="text-center p-6">
+            <div className="mx-auto w-16 h-16 bg-[#C5A6FF] rounded-full flex items-center justify-center mb-4">
+              <FileText className="h-8 w-8 text-white" />
             </div>
+            <CardTitle className="text-black uppercase">Generate Report</CardTitle>
+          </CardHeader>
+          <CardContent className="text-center">
+            <p className="text-gray-600 mb-4">Create printable reorder report</p>
+            <Button
+              onClick={generateReorderReport}
+              disabled={reorderAlerts.length === 0}
+              variant="outline"
+              className="border-[#C5A6FF] text-[#C5A6FF] hover:bg-[#C5A6FF] hover:text-white w-full"
+            >
+              <Download className="h-4 w-4 mr-2" />
+              Generate Report
+            </Button>
+          </CardContent>
+        </Card>
 
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-[#A6FFE2] rounded-full flex items-center justify-center mx-auto mb-4">
-                <Plus className="h-8 w-8 text-black" />
-              </div>
-              <h3 className="font-bold text-black mb-2 uppercase">Add Material</h3>
-              <p className="text-sm text-gray-600 mb-4">Add new materials to inventory</p>
-              <Button
-                onClick={openAddDialog}
-                variant="outline"
-                className="border-[#A6FFE2] text-[#A6FFE2] hover:bg-[#A6FFE2] hover:text-black w-full"
-              >
-                <Plus className="h-4 w-4 mr-2" />
-                Add Material
-              </Button>
+        {/* Add Material Card */}
+        <Card className="bg-white border-solv-thick border-black transition-colors duration-200 rounded-lg cursor-pointer">
+          <CardHeader className="text-center p-6">
+            <div className="mx-auto w-16 h-16 bg-[#A6FFE2] rounded-full flex items-center justify-center mb-4">
+              <Plus className="h-8 w-8 text-black" />
             </div>
-          </div>
-
-          {reorderAlerts.length > 0 && (
-            <div className="mt-6 p-6 bg-white rounded-lg border border-[#FF8C82]">
-              <h4 className="font-semibold text-black mb-3 uppercase">📋 Materials Needing Immediate Attention:</h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                {reorderAlerts.map(alert => (
-                  <div key={alert.materialId} className="p-3 bg-red-50 rounded-lg border border-red-200">
-                    <div className="flex justify-between items-start mb-2">
-                      <h5 className="font-semibold text-red-800">{alert.materialName}</h5>
-                      <Badge variant="destructive" className="text-xs">
-                        {alert.currentStock <= alert.reorderThreshold * 0.5 ? '🚨 Critical' : 'Low'}
-                      </Badge>
-                    </div>
-                    <p className="text-sm text-red-700 mb-1">
-                      Stock: {alert.currentStock}ft / Threshold: {alert.reorderThreshold}ft
-                    </p>
-                    <p className="text-xs text-red-600">Supplier: {alert.supplier}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-        </CardContent>
-      </Card>
+            <CardTitle className="text-black uppercase">Add Material</CardTitle>
+          </CardHeader>
+          <CardContent className="text-center">
+            <p className="text-gray-600 mb-4">Add new materials to inventory</p>
+            <Button
+              onClick={openAddDialog}
+              variant="outline"
+              className="border-[#A6FFE2] text-[#A6FFE2] hover:bg-[#A6FFE2] hover:text-black w-full"
+            >
+              <Plus className="h-4 w-4 mr-2" />
+              Add Material
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
 
       {/* Materials List */}
-      <Card className="bg-white border-solv border-black transition-colors duration-200 rounded-lg">
+      <Card className="bg-white border-solv-thick border-black transition-colors duration-200 rounded-lg">
         <CardHeader className="bg-white border-b border-black">
           <div className="flex justify-between items-center">
             <CardTitle className="flex items-center gap-2 text-black uppercase">
