@@ -225,17 +225,17 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
           <div className="flex items-center gap-4">
             <button 
               onClick={onBack}
-              className="solv-button-secondary flex items-center gap-2"
+              className="btn-base bg-white text-black outline-black hover:outline-mint hover:bg-mint hover:text-white"
             >
-              <ArrowLeft className="h-4 w-4 stroke-2" />
+              <ArrowLeft className="h-4 w-4 mr-2" />
               Back
             </button>
             <div>
-              <h1 className="solv-h1">Create Cut Job</h1>
-              <p className="solv-body text-gray-600">Generate a new cutting order</p>
+              <h1 className="text-4xl font-bold text-black">CREATE CUT JOB</h1>
+              <p className="text-lg text-gray-600">Generate a new cutting order</p>
             </div>
           </div>
-          <Scissors className="h-8 w-8 text-solv-teal stroke-2" />
+          <Scissors className="h-8 w-8 text-mint stroke-2" />
         </div>
       </div>
 
@@ -243,31 +243,31 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
       <div className="h-[calc(100%-120px)] p-6 overflow-hidden">
         <div className="h-full grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Form Section */}
-          <div className="solv-card h-full overflow-auto">
-            <div className="flex items-center gap-2 mb-6">
-              <User className="h-5 w-5 text-solv-teal stroke-2" />
-              <h2 className="solv-h2">Job Details</h2>
+          <div className="card-base p-6 h-full overflow-auto hover:outline-mint">
+            <div className="flex items-center gap-3 mb-6">
+              <User className="h-6 w-6 text-mint" />
+              <h2 className="text-3xl font-semibold text-black">JOB DETAILS</h2>
             </div>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="solv-body font-semibold block mb-2">Customer Name</label>
+                <label className="text-base font-semibold block mb-2">Customer Name</label>
                 <input
                   type="text"
                   value={customerName}
                   onChange={(e) => setCustomerName(e.target.value)}
-                  className="solv-input"
+                  className="input-base"
                   placeholder="Enter customer name"
                   required
                 />
               </div>
 
               <div>
-                <label className="solv-body font-semibold block mb-2">Material</label>
+                <label className="text-base font-semibold block mb-2">Material</label>
                 <select
                   value={selectedMaterialId}
                   onChange={(e) => setSelectedMaterialId(e.target.value)}
-                  className="solv-input"
+                  className="input-base"
                   required
                 >
                   {materials.map(material => (

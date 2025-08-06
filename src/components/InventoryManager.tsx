@@ -764,22 +764,22 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
       </div>
 
       {/* Materials List */}
-      <Card className="bg-white border-solv-thick border-black transition-colors duration-200 rounded-lg">
-        <CardHeader className="bg-white border-b border-black">
+      <div className="card-base hover:outline-mint">
+        <div className="p-6 border-b-2 border-black">
           <div className="flex justify-between items-center">
-            <CardTitle className="flex items-center gap-2 text-black uppercase">
-              <Warehouse className="h-5 w-5 text-[#A6FFE2]" />
-              Materials Inventory
-            </CardTitle>
+            <div className="flex items-center gap-3">
+              <Warehouse className="h-6 w-6 text-mint" />
+              <h3 className="text-2xl font-semibold text-black">MATERIALS INVENTORY</h3>
+            </div>
             <Dialog open={isAddingMaterial} onOpenChange={setIsAddingMaterial}>
               <DialogTrigger asChild>
-                <Button 
+                <button 
                   onClick={openAddDialog}
-                  className="bg-[#A6FFE2] text-black border border-[#A6FFE2] hover:bg-white hover:text-[#A6FFE2]"
+                  className="btn-base btn-mint"
                 >
                   <Plus className="h-4 w-4 mr-2" />
                   Add Material
-                </Button>
+                </button>
               </DialogTrigger>
               <DialogContent className="max-w-md">
                 <DialogHeader>
@@ -870,17 +870,16 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
               </DialogContent>
             </Dialog>
           </div>
-        </CardHeader>
-        <CardContent className="p-6">
+        <div className="p-6">
           <div className="space-y-6">
             {materials.length === 0 ? (
               <div className="text-center py-12">
                 <Package className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-                <p className="text-gray-500">No materials in inventory</p>
+                <p className="text-lg text-gray-500">No materials in inventory</p>
               </div>
             ) : (
               materials.map(material => (
-                <div key={material.id} className="border-solv border-black rounded-lg p-6 bg-white transition-colors duration-200 cursor-pointer">
+                <div key={material.id} className="card-base p-6 cursor-pointer hover:outline-mint">
                   <div className="flex justify-between items-start mb-4">
                     <div className="flex items-center gap-3">
                       <Checkbox
@@ -1035,8 +1034,8 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
               ))
             )}
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
       {/* Bulk Reorder Confirmation Dialog */}
       <Dialog open={showBulkReorderDialog} onOpenChange={setShowBulkReorderDialog}>
