@@ -652,7 +652,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
       )}
 
       {/* Bulk Selection Controls */}
-      <Card className="bg-white border border-black hover:border-[#C5A6FF] transition-colors duration-200 rounded-lg">
+      <Card className="bg-white border-solv border-black transition-colors duration-200 rounded-lg">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-black uppercase">
             <CheckSquare className="h-6 w-6" />
@@ -702,7 +702,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
           </div>
           
           {selectedMaterials.size > 0 && (
-            <div className="mt-4 p-6 bg-white rounded-lg border border-black">
+            <div className="mt-4 p-6 bg-white rounded-lg border-solv border-black">
               <h4 className="font-semibold text-black mb-2 uppercase">Selected for Reorder:</h4>
               <div className="flex flex-wrap gap-2">
                 {getSelectedMaterials().map(material => (
@@ -717,7 +717,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
       </Card>
 
       {/* Supplier Ordering Section */}
-      <Card className="bg-white border border-black hover:border-[#FF8C82] transition-colors duration-200 rounded-lg">
+      <Card className="bg-white border-solv border-black transition-colors duration-200 rounded-lg">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-black uppercase">
             <ShoppingCart className="h-6 w-6" />
@@ -801,7 +801,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
       </Card>
 
       {/* Materials List */}
-      <Card className="bg-white border border-black hover:border-[#A6FFE2] transition-colors duration-200 rounded-lg">
+      <Card className="bg-white border-solv border-black transition-colors duration-200 rounded-lg">
         <CardHeader className="bg-white border-b border-black">
           <div className="flex justify-between items-center">
             <CardTitle className="flex items-center gap-2 text-black uppercase">
@@ -917,7 +917,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
               </div>
             ) : (
               materials.map(material => (
-                <div key={material.id} className="border border-black rounded-lg p-6 bg-white hover:border-[#A6FFE2] transition-colors duration-200 cursor-pointer">
+                <div key={material.id} className="border-solv border-black rounded-lg p-6 bg-white transition-colors duration-200 cursor-pointer">
                   <div className="flex justify-between items-start mb-4">
                     <div className="flex items-center gap-3">
                       <Checkbox
