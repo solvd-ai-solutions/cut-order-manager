@@ -218,7 +218,7 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
   const selectedMaterial = materials.find(m => m.id === selectedMaterialId);
 
   return (
-    <div className="h-full bg-white overflow-hidden">
+    <div className="bg-white min-h-screen">
       {/* Header */}
       <div className="border-b-2 border-black p-6">
         <div className="flex items-center justify-between">
@@ -240,10 +240,10 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
       </div>
 
       {/* Main Content - Single Viewport Grid */}
-      <div className="h-[calc(100%-120px)] p-6 overflow-hidden">
-        <div className="h-full grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="p-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Form Section */}
-          <div className="card-base p-6 h-full overflow-auto hover:outline-mint">
+          <div className="card-base p-6 hover:outline-mint">
             <div className="flex items-center gap-3 mb-6">
               <User className="h-6 w-6 text-mint" />
               <h2 className="text-3xl font-semibold text-black">JOB DETAILS</h2>
@@ -389,7 +389,7 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
             </div>
 
           {/* Preview Section */}
-          <div className="space-y-6 h-full overflow-auto">
+          <div className="space-y-6">
             {/* Cost Breakdown */}
             <div className="card-base p-6 hover:outline-coral">
               <div className="flex items-center gap-3 mb-4">
