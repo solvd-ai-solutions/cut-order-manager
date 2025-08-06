@@ -32,7 +32,7 @@ A modern hardware store management system built with React, TypeScript, and Tail
 
 - **Frontend**: React 18 with TypeScript
 - **Styling**: Tailwind CSS with custom Solv Solutions design system
-- **Icons**: Lucide React
+- **Icons**: Emojis for consistency and accessibility
 - **UI Components**: Radix UI primitives
 - **Build Tool**: Vite
 - **Development**: Hot reload with React Refresh

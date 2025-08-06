@@ -106,8 +106,27 @@ For example:
 
 #### d) Icons & Progress
 
-* **Stroke:** 2 px in black (or white on dark).
-* **Accent States:** Fill or stroke in Accent 3 for info/neutral states.
+* **Emojis:** Use emojis for all icons throughout the application for consistency and accessibility.
+* **Common Icons:**
+  - Cut Jobs: ✂️ (scissors)
+  - Inventory: 📦 (package)
+  - View/Eye: 👁️ (eye)
+  - Back/Navigation: ⬅️ (left arrow)
+  - Success/Complete: ✅ (check mark)
+  - Warning/Alert: ⚠️ (warning)
+  - Cancel/Close: ❌ (cross mark)
+  - Search: 🔍 (magnifying glass)
+  - Add/Plus: ➕ (plus)
+  - Print: 🖨️ (printer)
+  - Email/Send: ✉️ (envelope)
+  - Money/Cost: 💲 (dollar sign)
+  - Lock/Secure: 🔒 (lock)
+  - Time/Clock: 🕐 (clock)
+  - Edit: ✏️ (pencil)
+  - Shopping: 🛒 (shopping cart)
+  - Demo/Power: ⚡ (lightning bolt)
+* **Sizing:** Use text size classes (text-sm, text-lg, text-3xl) to control emoji size.
+* **Color:** Apply text color classes to emojis when needed for state indication.
 
 #### e) Feedback & Status
 
