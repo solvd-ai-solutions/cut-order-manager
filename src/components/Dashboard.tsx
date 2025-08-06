@@ -82,79 +82,66 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
       {/* Quick Action Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* New Cut Job Card */}
-        <Card className="bg-white border-solv-thick border-black rounded-lg transition-colors duration-200 rounded-lg cursor-pointer" onClick={onNewJob}>
-          <CardHeader className="text-center p-6">
-            <div className="mx-auto w-16 h-16 bg-[#A6FFE2] rounded-full flex items-center justify-center mb-4">
-              <Scissors className="h-8 w-8 text-black" />
+        <div className="card-base p-6 cursor-pointer hover:outline-mint" onClick={onNewJob}>
+          <div className="text-center">
+            <div className="mx-auto w-16 h-16 bg-mint rounded-full flex items-center justify-center mb-4">
+              <Scissors className="h-8 w-8 text-white" />
             </div>
-            <CardTitle className="text-black uppercase">Create Cut Job</CardTitle>
-          </CardHeader>
-          <CardContent className="text-center">
-            <p className="text-gray-600 mb-4">Start a new cutting job for customers</p>
-            <Button className="bg-[#A6FFE2] text-black border border-[#A6FFE2] hover:bg-white hover:text-[#A6FFE2]">
+            <h3 className="text-2xl font-semibold mb-4">Create Cut Job</h3>
+            <p className="text-base text-gray-600 mb-6">Start a new cutting job for customers</p>
+            <button className="btn-base btn-mint">
               New Job
-            </Button>
-          </CardContent>
-        </Card>
+            </button>
+          </div>
+        </div>
 
         {/* Inventory Management Card */}
-        <Card className={`bg-white border-solv-thick border-black transition-colors duration-200 rounded-lg cursor-pointer`} onClick={onManageInventory}>
-          <CardHeader className="text-center p-6">
-            <div className={`mx-auto w-16 h-16 ${reorderAlerts.length > 0 ? 'bg-[#FF8C82]' : 'bg-[#A6FFE2]'} rounded-full flex items-center justify-center mb-4 relative`}>
+        <div className={`card-base p-6 cursor-pointer ${reorderAlerts.length > 0 ? 'hover:outline-coral' : 'hover:outline-mint'}`} onClick={onManageInventory}>
+          <div className="text-center">
+            <div className={`mx-auto w-16 h-16 ${reorderAlerts.length > 0 ? 'bg-coral' : 'bg-mint'} rounded-full flex items-center justify-center mb-4 relative`}>
               <Warehouse className="h-8 w-8 text-white" />
               {reorderAlerts.length > 0 && (
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-[#FF8C82] rounded-full flex items-center justify-center border-2 border-white">
+                <div className="absolute -top-2 -right-2 w-6 h-6 bg-coral rounded-full flex items-center justify-center outline-2 outline-white outline-offset-0" style={{outlineStyle: 'solid'}}>
                   <span className="text-white text-xs font-bold">{reorderAlerts.length}</span>
                 </div>
               )}
             </div>
-            <CardTitle className="text-black uppercase">
-              Inventory Manager
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="text-center">
-            <p className="text-gray-600 mb-4">
+            <h3 className="text-2xl font-semibold mb-4">Inventory Manager</h3>
+            <p className="text-base text-gray-600 mb-6">
               {reorderAlerts.length > 0 
                 ? `${reorderAlerts.length} materials need reordering!`
                 : 'Manage stock levels and suppliers'
               }
             </p>
-            <Button 
-              className={reorderAlerts.length > 0 
-                ? 'bg-[#FF8C82] text-white border border-[#FF8C82] hover:bg-white hover:text-[#FF8C82]' 
-                : 'bg-white text-[#A6FFE2] border border-[#A6FFE2] hover:bg-[#A6FFE2] hover:text-black'
-              }
-            >
+            <button className={`btn-base ${reorderAlerts.length > 0 ? 'btn-coral' : 'btn-mint'}`}>
               Manage Inventory
-            </Button>
-          </CardContent>
-        </Card>
+            </button>
+          </div>
+        </div>
 
         {/* Job Manager Card */}
-        <Card className="bg-white border-solv-thick border-black rounded-lg transition-colors duration-200 rounded-lg cursor-pointer" onClick={onViewJobs}>
-          <CardHeader className="text-center p-6">
-            <div className="mx-auto w-16 h-16 bg-[#C5A6FF] rounded-full flex items-center justify-center mb-4 relative">
+        <div className="card-base p-6 cursor-pointer hover:outline-lavender" onClick={onViewJobs}>
+          <div className="text-center">
+            <div className="mx-auto w-16 h-16 bg-lavender rounded-full flex items-center justify-center mb-4 relative">
               <Eye className="h-8 w-8 text-white" />
               {pendingJobs.length > 0 && (
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-[#C5A6FF] rounded-full flex items-center justify-center border-2 border-white">
+                <div className="absolute -top-2 -right-2 w-6 h-6 bg-lavender rounded-full flex items-center justify-center outline-2 outline-white outline-offset-0" style={{outlineStyle: 'solid'}}>
                   <span className="text-white text-xs font-bold">{pendingJobs.length}</span>
                 </div>
               )}
             </div>
-            <CardTitle className="text-black uppercase">Job Manager</CardTitle>
-          </CardHeader>
-          <CardContent className="text-center">
-            <p className="text-gray-600 mb-4">
+            <h3 className="text-2xl font-semibold mb-4">Job Manager</h3>
+            <p className="text-base text-gray-600 mb-6">
               {pendingJobs.length > 0 
                 ? `${pendingJobs.length} pending jobs to process`
                 : 'View and manage all cutting jobs'
               }
             </p>
-            <Button className="bg-white text-[#C5A6FF] border border-[#C5A6FF] hover:bg-[#C5A6FF] hover:text-white">
+            <button className="btn-base btn-lavender">
               View Jobs
-            </Button>
-          </CardContent>
-        </Card>
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Stats Cards */}
