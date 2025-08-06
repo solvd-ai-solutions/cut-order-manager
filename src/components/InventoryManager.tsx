@@ -870,6 +870,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
               </DialogContent>
             </Dialog>
           </div>
+        </div>
         <div className="p-6">
           <div className="space-y-6">
             {materials.length === 0 ? (
