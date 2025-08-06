@@ -652,7 +652,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
       )}
 
       {/* Bulk Selection Controls */}
-      <Card className="bg-white border border-black hover:border-[#C5A6FF] hover:scale-105 transition-all duration-200 cursor-pointer">
+      <Card className="bg-white border border-black hover:border-[#C5A6FF] transition-colors duration-200 rounded-lg">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-black uppercase">
             <CheckSquare className="h-6 w-6" />
@@ -717,7 +717,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
       </Card>
 
       {/* Supplier Ordering Section */}
-      <Card className="bg-white border border-black hover:border-[#FF8C82] hover:scale-105 transition-all duration-200 cursor-pointer">
+      <Card className="bg-white border border-black hover:border-[#FF8C82] transition-colors duration-200 rounded-lg">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-black uppercase">
             <ShoppingCart className="h-6 w-6" />
@@ -726,7 +726,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="text-center p-6 border border-black hover:border-[#FF8C82] hover:scale-105 transition-all duration-200 cursor-pointer bg-white">
+            <div className="text-center p-6">
               <div className="w-16 h-16 bg-[#FF8C82] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Zap className="h-8 w-8 text-white" />
               </div>
@@ -742,7 +742,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
               </Button>
             </div>
 
-            <div className="text-center p-6 border border-black hover:border-[#C5A6FF] hover:scale-105 transition-all duration-200 cursor-pointer bg-white">
+            <div className="text-center p-6">
               <div className="w-16 h-16 bg-[#C5A6FF] rounded-full flex items-center justify-center mx-auto mb-4">
                 <FileText className="h-8 w-8 text-white" />
               </div>
@@ -759,7 +759,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
               </Button>
             </div>
 
-            <div className="text-center p-6 border border-black hover:border-[#A6FFE2] hover:scale-105 transition-all duration-200 cursor-pointer bg-white">
+            <div className="text-center p-6">
               <div className="w-16 h-16 bg-[#A6FFE2] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Plus className="h-8 w-8 text-black" />
               </div>
@@ -801,7 +801,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
       </Card>
 
       {/* Materials List */}
-      <Card className="bg-white border border-black hover:border-[#A6FFE2] hover:scale-105 transition-all duration-200 cursor-pointer">
+      <Card className="bg-white border border-black hover:border-[#A6FFE2] transition-colors duration-200 rounded-lg">
         <CardHeader className="bg-white border-b border-black">
           <div className="flex justify-between items-center">
             <CardTitle className="flex items-center gap-2 text-black uppercase">
@@ -917,7 +917,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
               </div>
             ) : (
               materials.map(material => (
-                <div key={material.id} className="border border-black rounded-lg p-6 bg-white hover:border-[#A6FFE2] hover:scale-105 transition-all duration-200 cursor-pointer">
+                <div key={material.id} className="border border-black rounded-lg p-6 bg-white hover:border-[#A6FFE2] transition-colors duration-200 cursor-pointer">
                   <div className="flex justify-between items-start mb-4">
                     <div className="flex items-center gap-3">
                       <Checkbox
