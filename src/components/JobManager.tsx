@@ -80,48 +80,43 @@ export function JobManager({ onBack }: JobManagerProps) {
   return (
     <div className="space-y-8">
       <div className="flex items-center gap-4">
-        <Button variant="ghost" onClick={onBack} className="hover:bg-gray-100">
+        <button onClick={onBack} className="btn-base bg-white text-black outline-black hover:outline-mint hover:bg-mint hover:text-white">
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back to Dashboard
-        </Button>
+        </button>
         <div>
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Job Manager
+          <h1 className="text-4xl font-bold text-black">
+            JOB MANAGER
           </h1>
-          <p className="text-gray-600">Manage and track all cutting jobs</p>
+          <p className="text-lg text-gray-600">Manage and track all cutting jobs</p>
         </div>
       </div>
 
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
         {/* Jobs List */}
         <div className="xl:col-span-2">
-          <Card className="shadow-lg">
-            <CardHeader className="bg-gradient-to-r from-slate-50 to-gray-50 rounded-t-lg">
-              <CardTitle className="text-slate-800">All Jobs</CardTitle>
-              <div className="flex gap-4 mt-4">
+          <div className="card-base hover:outline-lavender">
+            <div className="p-6 border-b-2 border-black">
+              <h3 className="text-2xl font-semibold text-black mb-4">ALL JOBS</h3>
+              <div className="flex gap-4">
                 <div className="relative flex-1">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-                  <Input
+                  <input
                     placeholder="Search by customer, material, or order code..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10 border-gray-300"
+                    className="input-base pl-10"
                   />
                 </div>
-                <Select value={statusFilter} onValueChange={setStatusFilter}>
-                  <SelectTrigger className="w-40 border-gray-300">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">All Status</SelectItem>
-                    <SelectItem value="pending">Pending</SelectItem>
-                    <SelectItem value="completed">Completed</SelectItem>
-                    <SelectItem value="cancelled">Cancelled</SelectItem>
-                  </SelectContent>
-                </Select>
+                <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)} className="input-base w-40">
+                  <option value="all">All Status</option>
+                  <option value="pending">Pending</option>
+                  <option value="completed">Completed</option>
+                  <option value="cancelled">Cancelled</option>
+                </select>
               </div>
-            </CardHeader>
-            <CardContent className="p-6">
+            </div>
+            <div className="p-6">
               <div className="space-y-4">
                 {filteredJobs.length === 0 ? (
                   <div className="text-center py-12">
