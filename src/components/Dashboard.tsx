@@ -82,7 +82,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
         <div className="card-base p-6 cursor-pointer hover:outline-mint" onClick={onNewJob}>
           <div className="text-center">
             <div className="mx-auto w-16 h-16 bg-mint rounded-full flex items-center justify-center mb-4">
-              <Scissors className="h-8 w-8 text-white" />
+              <span className="text-white text-3xl">✂️</span>
             </div>
             <h3 className="text-2xl font-semibold mb-4">Create Cut Job</h3>
             <p className="text-base text-gray-600 mb-6">Start a new cutting job for customers</p>
@@ -96,7 +96,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
         <div className={`card-base p-6 cursor-pointer ${reorderAlerts.length > 0 ? 'hover:outline-coral' : 'hover:outline-mint'}`} onClick={onManageInventory}>
           <div className="text-center">
             <div className={`mx-auto w-16 h-16 ${reorderAlerts.length > 0 ? 'bg-coral' : 'bg-mint'} rounded-full flex items-center justify-center mb-4 relative`}>
-              <Warehouse className="h-8 w-8 text-white" />
+              <span className="text-white text-3xl">🏢</span>
               {reorderAlerts.length > 0 && (
                 <div className="absolute -top-2 -right-2 w-6 h-6 bg-coral rounded-full flex items-center justify-center outline-2 outline-white outline-offset-0" style={{outlineStyle: 'solid'}}>
                   <span className="text-white text-xs font-bold">{reorderAlerts.length}</span>
@@ -120,7 +120,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
         <div className="card-base p-6 cursor-pointer hover:outline-lavender" onClick={onViewJobs}>
           <div className="text-center">
             <div className="mx-auto w-16 h-16 bg-lavender rounded-full flex items-center justify-center mb-4 relative">
-              <Eye className="h-8 w-8 text-white" />
+              <span className="text-white text-3xl">👁️</span>
               {pendingJobs.length > 0 && (
                 <div className="absolute -top-2 -right-2 w-6 h-6 bg-lavender rounded-full flex items-center justify-center outline-2 outline-white outline-offset-0" style={{outlineStyle: 'solid'}}>
                   <span className="text-white text-xs font-bold">{pendingJobs.length}</span>
@@ -204,7 +204,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
       {reorderAlerts.length > 0 && (
         <div className="card-base p-6 hover:outline-coral">
           <div className="flex items-center gap-3 mb-4">
-            <ShoppingCart className="h-6 w-6 text-coral" />
+                          <span className="text-coral text-2xl">🛒</span>
             <h3 className="text-2xl font-semibold text-black">INVENTORY ACTIONS REQUIRED</h3>
           </div>
           <div className="flex flex-wrap gap-4 items-center justify-between">
@@ -221,14 +221,14 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
                 onClick={onManageInventory}
                 className="btn-base btn-coral"
               >
-                <ShoppingCart className="h-4 w-4 mr-2" />
+                <span className="mr-2">🛒</span>
                 Order Supplies
               </button>
               <button
                 onClick={onManageInventory}
                 className="btn-base bg-white text-coral outline-coral hover:outline-black hover:bg-coral hover:text-white"
               >
-                <Warehouse className="h-4 w-4 mr-2" />
+                <span className="mr-2">🏢</span>
                 Manage Inventory
               </button>
             </div>
@@ -242,17 +242,17 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
         <div className="card-base hover:outline-lavender">
           <div className="p-6 border-b-2 border-black">
             <div className="flex items-center gap-3">
-              <Clock className="h-6 w-6 text-lavender" />
+              <span className="text-lavender text-2xl">🕐</span>
               <h3 className="text-2xl font-semibold text-black">LATEST CUT JOB</h3>
             </div>
           </div>
           <div className="p-6">
             {pendingJobs.length === 0 ? (
               <div className="text-center py-8">
-                <Clock className="h-12 w-12 text-gray-300 mx-auto mb-4" />
+                <span className="text-6xl text-gray-300 mx-auto mb-4 block">🕐</span>
                 <p className="text-lg text-gray-500 mb-6">No pending jobs</p>
                 <button onClick={onNewJob} className="btn-base btn-mint">
-                  <Plus className="h-4 w-4 mr-2" />
+                  <span className="mr-2">➕</span>
                   Create First Job
                 </button>
               </div>
@@ -292,7 +292,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
         <div className="card-base hover:outline-coral">
           <div className="p-6 border-b-2 border-black">
             <div className="flex items-center gap-3">
-              <Package className="h-6 w-6 text-coral" />
+              <span className="text-coral text-2xl">📦</span>
               <h3 className="text-2xl font-semibold text-black">INVENTORY ALERT</h3>
             </div>
           </div>
