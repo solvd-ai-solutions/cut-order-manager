@@ -6,7 +6,7 @@ import { Label } from './ui/label';
 import { Badge } from './ui/badge';
 import { Alert, AlertDescription } from './ui/alert';
 import { Checkbox } from './ui/checkbox';
-import { ArrowLeft, Package, AlertTriangle, Download, Edit, Plus, Warehouse, TrendingDown, ShoppingCart, Send, Zap, FileText, CheckSquare, Square, Lock } from 'lucide-react';
+
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from './ui/dialog';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { dataStore } from '../services/dataStore';
@@ -603,7 +603,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
     <div className="space-y-8">
       <div className="flex items-center gap-4">
         <button onClick={onBack} className="btn-base bg-white text-black outline-black hover:outline-mint hover:bg-mint hover:text-white">
-          <ArrowLeft className="h-4 w-4 mr-2" />
+                          <span className="mr-2">⬅️</span>
           Back to Dashboard
         </button>
         <div>
@@ -619,7 +619,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
         <div className="card-base p-6 hover:outline-coral">
           <div className="flex justify-between items-center">
             <div className="flex items-start gap-4">
-              <AlertTriangle className="h-6 w-6 text-coral flex-shrink-0 mt-1" />
+              <span className="text-coral flex-shrink-0 mt-1">⚠️</span>
               <div>
                 <h3 className="text-xl font-semibold text-black mb-2">
                   🚨 URGENT: {reorderAlerts.length} material(s) need immediate reordering!
@@ -634,14 +634,14 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
                 onClick={() => setShowPurchaseOrders(true)}
                 className="btn-base btn-coral"
               >
-                <ShoppingCart className="h-4 w-4 mr-2" />
+                <span className="mr-2">🛒</span>
                 ORDER NOW
               </button>
               <button
                 onClick={generateReorderReport}
                 className="btn-base btn-sm bg-white text-coral outline-coral hover:outline-black hover:bg-coral hover:text-white"
               >
-                <FileText className="h-4 w-4 mr-2" />
+                <span className="mr-2">📄</span>
                 Report
               </button>
             </div>
@@ -652,7 +652,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
       {/* Bulk Selection Controls */}
       <div className="card-base p-6 hover:outline-lavender">
         <div className="flex items-center gap-3 mb-6">
-          <CheckSquare className="h-6 w-6 text-lavender" />
+                        <span className="text-lavender">✅</span>
           <h3 className="text-2xl font-semibold text-black">BULK MATERIAL SELECTION ({selectedMaterials.size} selected)</h3>
         </div>
         <div className="flex flex-wrap gap-4 items-center justify-between">
@@ -661,21 +661,21 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
               onClick={handleSelectAll}
               className="btn-base btn-sm bg-white text-lavender outline-lavender hover:outline-black hover:bg-lavender hover:text-white"
             >
-              <CheckSquare className="h-4 w-4 mr-2" />
+                              <span className="mr-2">✅</span>
               Select All ({materials.length})
             </button>
             <button
               onClick={handleSelectLowStock}
               className="btn-base btn-sm bg-white text-coral outline-coral hover:outline-black hover:bg-coral hover:text-white"
             >
-              <AlertTriangle className="h-4 w-4 mr-2" />
+                              <span className="mr-2">⚠️</span>
               Select Low Stock ({reorderAlerts.length})
             </button>
             <button
               onClick={handleSelectNone}
               className="btn-base btn-sm bg-white text-black outline-black hover:outline-black hover:bg-black hover:text-white"
             >
-              <Square className="h-4 w-4 mr-2" />
+                              <span className="mr-2">🔲</span>
               Clear Selection
             </button>
           </div>
@@ -710,7 +710,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
         <div className="card-base p-6 cursor-pointer hover:outline-coral">
           <div className="text-center">
             <div className="mx-auto w-16 h-16 bg-coral rounded-full flex items-center justify-center mb-4">
-              <Zap className="h-8 w-8 text-white" />
+                              <span className="text-white text-3xl">⚡</span>
             </div>
             <h3 className="text-2xl font-semibold mb-4">QUICK ORDER ALL</h3>
             <p className="text-base text-gray-600 mb-6">Order all low stock items at once</p>
@@ -729,7 +729,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
         <div className="card-base p-6 cursor-pointer hover:outline-lavender">
           <div className="text-center">
             <div className="mx-auto w-16 h-16 bg-lavender rounded-full flex items-center justify-center mb-4">
-              <FileText className="h-8 w-8 text-white" />
+                              <span className="text-white text-3xl">📄</span>
             </div>
             <h3 className="text-2xl font-semibold mb-4">GENERATE REPORT</h3>
             <p className="text-base text-gray-600 mb-6">Create printable reorder report</p>
@@ -738,7 +738,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
               disabled={reorderAlerts.length === 0}
               className="btn-base bg-white text-lavender outline-lavender hover:outline-black hover:bg-lavender hover:text-white w-full"
             >
-              <Download className="h-4 w-4 mr-2" />
+                              <span className="mr-2">📎</span>
               Generate Report
             </button>
           </div>
@@ -748,7 +748,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
         <div className="card-base p-6 cursor-pointer hover:outline-mint">
           <div className="text-center">
             <div className="mx-auto w-16 h-16 bg-mint rounded-full flex items-center justify-center mb-4">
-              <Plus className="h-8 w-8 text-white" />
+                              <span className="text-white text-3xl">➕</span>
             </div>
             <h3 className="text-2xl font-semibold mb-4">ADD MATERIAL</h3>
             <p className="text-base text-gray-600 mb-6">Add new materials to inventory</p>
@@ -768,7 +768,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
         <div className="p-6 border-b-2 border-black">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-3">
-              <Warehouse className="h-6 w-6 text-mint" />
+              <span className="text-mint">📦</span>
               <h3 className="text-2xl font-semibold text-black">MATERIALS INVENTORY</h3>
             </div>
             <Dialog open={isAddingMaterial} onOpenChange={setIsAddingMaterial}>
@@ -777,7 +777,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
                   onClick={openAddDialog}
                   className="btn-base btn-mint"
                 >
-                  <Plus className="h-4 w-4 mr-2" />
+                  <span className="mr-2">➕</span>
                   Add Material
                 </button>
               </DialogTrigger>
@@ -875,7 +875,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
           <div className="space-y-6">
             {materials.length === 0 ? (
               <div className="text-center py-12">
-                <Package className="h-16 w-16 text-gray-300 mx-auto mb-4" />
+                <span className="text-6xl text-gray-300 mx-auto mb-4 block">📦</span>
                 <p className="text-lg text-gray-500">No materials in inventory</p>
               </div>
             ) : (
@@ -904,14 +904,14 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
                           onClick={() => quickOrderMaterial(material)}
                           className="bg-[#FF8C82] text-white border border-[#FF8C82] hover:bg-white hover:text-[#FF8C82] text-xs"
                         >
-                          <Send className="h-3 w-3 mr-1" />
+                          <span className="mr-1">✉️</span>
                           Quick Order
                         </Button>
                       )}
                       <Dialog open={editingMaterial?.id === material.id} onOpenChange={(open) => !open && closeEditDialog()}>
                         <DialogTrigger asChild>
                           <Button variant="ghost" size="sm" onClick={() => openEditDialog(material)} className="hover:bg-blue-50">
-                            <Edit className="h-4 w-4" />
+                            <span>✏️</span>
                           </Button>
                         </DialogTrigger>
                         <DialogContent className="max-w-md bg-white border-2 border-black rounded-lg p-6">
@@ -1043,7 +1043,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
         <DialogContent className="max-w-md bg-white border-2 border-black rounded-lg p-6">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2 text-black uppercase">
-              <Lock className="h-5 w-5" />
+              <span>🔒</span>
               Manager Authorization Required
             </DialogTitle>
             <DialogDescription>
@@ -1085,7 +1085,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
                 onClick={confirmBulkReorder}
                 className="flex-1 bg-[#FF8C82] text-white border border-[#FF8C82] hover:bg-white hover:text-[#FF8C82]"
               >
-                <Lock className="h-4 w-4 mr-2" />
+                <span className="mr-2">🔒</span>
                 Authorize & Reorder
               </Button>
               <Button 

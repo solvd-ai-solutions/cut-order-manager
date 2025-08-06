@@ -1,6 +1,5 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from './ui/dialog';
 import { Button } from './ui/button';
-import { Printer, X } from 'lucide-react';
 
 interface TicketPreviewModalProps {
   isOpen: boolean;
@@ -170,7 +169,7 @@ export function TicketPreviewModal({ isOpen, onClose, ticket }: TicketPreviewMod
               🛠️ Cut Job Ticket
             </DialogTitle>
             <Button variant="ghost" size="sm" onClick={onClose}>
-              <X className="h-4 w-4" />
+              <span>❌</span>
             </Button>
           </div>
           <DialogDescription>
@@ -238,7 +237,7 @@ export function TicketPreviewModal({ isOpen, onClose, ticket }: TicketPreviewMod
           {/* Action Buttons */}
           <div className="flex gap-3 pt-4">
             <Button onClick={handlePrint} className="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800">
-              <Printer className="h-4 w-4 mr-2" />
+              <span className="mr-2">🖨️</span>
               Print Ticket
             </Button>
             <Button variant="outline" onClick={onClose} className="flex-1">

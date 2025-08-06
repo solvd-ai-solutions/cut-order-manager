@@ -3,8 +3,6 @@ import { CutJobForm } from './components/CutJobForm';
 import { JobManager } from './components/JobManager';
 import { InventoryManager } from './components/InventoryManager';
 
-import { Scissors, Package, Eye, Zap } from 'lucide-react';
-
 type AppView = 'dashboard' | 'new-job' | 'job-manager' | 'inventory';
 
 export default function App() {
@@ -33,16 +31,16 @@ export default function App() {
 
   if (currentView !== 'dashboard') {
     return (
-      <div className="h-screen bg-white text-black overflow-hidden">
+      <div className="h-screen bg-white text-black flex flex-col overflow-hidden">
         {/* Demo Banner */}
-        <div className="bg-solv-lavender border-b-2 border-black px-6 py-2 flex items-center justify-center gap-2">
-          <Zap className="h-4 w-4 text-black" />
+        <div className="bg-solv-lavender border-b-2 border-black px-6 py-2 flex items-center justify-center gap-2 flex-shrink-0">
+          <span className="text-black text-sm">⚡</span>
           <span className="solv-small font-semibold">DEMO VERSION</span>
           <span className="solv-small">• Limited functionality • Sample data only</span>
         </div>
 
         {/* Content */}
-        <div className="h-[calc(100vh-48px)] overflow-auto p-6">
+        <div className="flex-1 min-h-0 overflow-hidden">
           {renderContent()}
         </div>
       </div>
@@ -53,7 +51,7 @@ export default function App() {
     <div className="h-screen bg-white text-black overflow-hidden">
       {/* Demo Banner */}
       <div className="bg-solv-lavender border-b-2 border-black px-6 py-2 flex items-center justify-center gap-2">
-        <Zap className="h-4 w-4 text-black" />
+        <span className="text-black text-sm">⚡</span>
         <span className="solv-small font-semibold">DEMO VERSION</span>
         <span className="solv-small">• Limited functionality • Sample data only</span>
       </div>
@@ -81,7 +79,7 @@ export default function App() {
           <div className="solv-card cursor-pointer hover:bg-gray-50 transition-colors" onClick={() => setCurrentView('new-job')}>
             <div className="text-center h-full flex flex-col justify-center">
               <div className="w-16 h-16 bg-solv-teal rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Scissors className="h-8 w-8 text-white stroke-2" />
+                <span className="text-white text-3xl">✂️</span>
               </div>
               <h2 className="solv-h2 mb-2">Create Cut Job</h2>
               <p className="solv-body text-gray-600 mb-4">Start a new cutting job for customers</p>
@@ -94,7 +92,7 @@ export default function App() {
           <div className="solv-card cursor-pointer hover:bg-gray-50 transition-colors" onClick={() => setCurrentView('inventory')}>
             <div className="text-center h-full flex flex-col justify-center">
               <div className="w-16 h-16 bg-solv-coral rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Package className="h-8 w-8 text-white stroke-2" />
+                <span className="text-white text-3xl">📦</span>
               </div>
               <h2 className="solv-h2 mb-2">Inventory Manager</h2>
               <p className="solv-body text-gray-600 mb-4">Manage stock levels and suppliers</p>
@@ -107,7 +105,7 @@ export default function App() {
           <div className="solv-card cursor-pointer hover:bg-gray-50 transition-colors" onClick={() => setCurrentView('job-manager')}>
             <div className="text-center h-full flex flex-col justify-center">
               <div className="w-16 h-16 bg-solv-lavender rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Eye className="h-8 w-8 text-black stroke-2" />
+                <span className="text-black text-3xl">👁️</span>
               </div>
               <h2 className="solv-h2 mb-2">Job Manager</h2>
               <p className="solv-body text-gray-600 mb-4">View and manage cutting jobs</p>

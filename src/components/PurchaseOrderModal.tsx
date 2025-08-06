@@ -6,7 +6,7 @@ import { Label } from './ui/label';
 import { Badge } from './ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Separator } from './ui/separator';
-import { ShoppingCart, Printer, Send, X, Package, DollarSign } from 'lucide-react';
+
 import { Material } from '../types';
 
 interface PurchaseOrderModalProps {
@@ -269,7 +269,7 @@ export function PurchaseOrderModal({ isOpen, onClose, materials, reorderMaterial
               🛒 Purchase Orders
             </DialogTitle>
             <Button variant="ghost" size="sm" onClick={onClose}>
-              <X className="h-4 w-4" />
+              <span>❌</span>
             </Button>
           </div>
           <DialogDescription>
@@ -281,7 +281,7 @@ export function PurchaseOrderModal({ isOpen, onClose, materials, reorderMaterial
               <Card>
                 <CardContent className="p-4">
                   <div className="flex items-center gap-2">
-                    <Package className="h-5 w-5 text-blue-600" />
+                    <span className="text-blue-600">📦</span>
                     <div>
                       <p className="text-sm text-gray-600">Total Items</p>
                       <p className="text-xl font-bold">{supplierOrders.reduce((sum, order) => sum + order.items.length, 0)}</p>
@@ -293,7 +293,7 @@ export function PurchaseOrderModal({ isOpen, onClose, materials, reorderMaterial
               <Card>
                 <CardContent className="p-4">
                   <div className="flex items-center gap-2">
-                    <DollarSign className="h-5 w-5 text-green-600" />
+                    <span className="text-green-600">💲</span>
                     <div>
                       <p className="text-sm text-gray-600">Total Value</p>
                       <p className="text-xl font-bold">${getTotalOrderValue().toFixed(2)}</p>
@@ -305,7 +305,7 @@ export function PurchaseOrderModal({ isOpen, onClose, materials, reorderMaterial
               <Card>
                 <CardContent className="p-4">
                   <div className="flex items-center gap-2">
-                    <ShoppingCart className="h-5 w-5 text-orange-600" />
+                    <span className="text-orange-600">🛒</span>
                     <div>
                       <p className="text-sm text-gray-600">Suppliers</p>
                       <p className="text-xl font-bold">{supplierOrders.length}</p>
@@ -320,7 +320,7 @@ export function PurchaseOrderModal({ isOpen, onClose, materials, reorderMaterial
         <div className="space-y-6">
           {supplierOrders.length === 0 ? (
             <div className="text-center py-12">
-              <ShoppingCart className="h-16 w-16 text-gray-300 mx-auto mb-4" />
+              <span className="text-6xl text-gray-300 mx-auto mb-4 block">🛒</span>
               <p className="text-gray-500">No materials need reordering at this time</p>
             </div>
           ) : (
@@ -330,7 +330,7 @@ export function PurchaseOrderModal({ isOpen, onClose, materials, reorderMaterial
                   <CardHeader className="bg-gradient-to-r from-slate-50 to-gray-50">
                     <div className="flex justify-between items-center">
                       <CardTitle className="flex items-center gap-2">
-                        <Package className="h-5 w-5 text-blue-600" />
+                        <span className="text-blue-600">📦</span>
                         {supplierOrder.supplier}
                       </CardTitle>
                       <div className="flex items-center gap-2">
@@ -407,7 +407,7 @@ export function PurchaseOrderModal({ isOpen, onClose, materials, reorderMaterial
                           onClick={() => printPurchaseOrder(supplierOrder)}
                           className="border-blue-300 text-blue-700 hover:bg-blue-50"
                         >
-                          <Printer className="h-4 w-4 mr-2" />
+                          <span className="mr-2">🖨️</span>
                           Print PO
                         </Button>
                         
@@ -415,7 +415,7 @@ export function PurchaseOrderModal({ isOpen, onClose, materials, reorderMaterial
                           onClick={() => sendPurchaseOrder(supplierOrder)}
                           className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800"
                         >
-                          <Send className="h-4 w-4 mr-2" />
+                          <span className="mr-2">✉️</span>
                           Send Order
                         </Button>
                       </div>
@@ -454,7 +454,7 @@ export function PurchaseOrderModal({ isOpen, onClose, materials, reorderMaterial
                         onClick={() => supplierOrders.forEach(printPurchaseOrder)}
                         className="border-blue-300 text-blue-700 hover:bg-blue-50"
                       >
-                        <Printer className="h-4 w-4 mr-2" />
+                        <span className="mr-2">🖨️</span>
                         Print All POs
                       </Button>
                       
@@ -462,7 +462,7 @@ export function PurchaseOrderModal({ isOpen, onClose, materials, reorderMaterial
                         onClick={() => supplierOrders.forEach(sendPurchaseOrder)}
                         className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800"
                       >
-                        <Send className="h-4 w-4 mr-2" />
+                        <span className="mr-2">✉️</span>
                         Send All Orders
                       </Button>
                     </div>

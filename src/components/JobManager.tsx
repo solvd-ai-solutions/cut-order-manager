@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Badge } from './ui/badge';
-import { ArrowLeft, Search, CheckCircle, XCircle, Eye, Clock, CheckCircle2 } from 'lucide-react';
 import { dataStore } from '../services/dataStore';
 import { CutJob } from '../types';
 import { TicketPreviewModal } from './TicketPreviewModal';
@@ -77,7 +76,7 @@ export function JobManager({ onBack }: JobManagerProps) {
     <div className="space-y-8">
       <div className="flex items-center gap-4">
         <button onClick={onBack} className="btn-base bg-white text-black outline-black hover:outline-mint hover:bg-mint hover:text-white">
-          <ArrowLeft className="h-4 w-4 mr-2" />
+                        <span className="mr-2">⬅️</span>
           Back to Dashboard
         </button>
         <div>
@@ -96,7 +95,7 @@ export function JobManager({ onBack }: JobManagerProps) {
               <h3 className="text-2xl font-semibold text-black mb-4">ALL JOBS</h3>
               <div className="flex gap-4">
                 <div className="relative flex-1">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                  <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">🔍</span>
                   <input
                     placeholder="Search by customer, material, or order code..."
                     value={searchTerm}
@@ -116,7 +115,7 @@ export function JobManager({ onBack }: JobManagerProps) {
               <div className="space-y-4">
                 {filteredJobs.length === 0 ? (
                   <div className="text-center py-12">
-                    <Search className="h-16 w-16 text-gray-300 mx-auto mb-4" />
+                    <span className="text-6xl text-gray-300 mx-auto mb-4 block">🔍</span>
                     <p className="text-gray-500">
                       {jobs.length === 0 ? 'No jobs found' : 'No jobs match your search'}
                     </p>
@@ -241,14 +240,14 @@ export function JobManager({ onBack }: JobManagerProps) {
                       <h4 className="font-semibold text-blue-800 mb-3">Timeline</h4>
                       <div className="space-y-2 text-sm">
                         <div className="flex items-center gap-2">
-                          <Clock className="h-4 w-4 text-blue-600" />
+                          <span className="text-blue-600">🕐</span>
                           <span className="text-blue-700">
                             Created: {selectedJob.createdAt.toLocaleDateString()} at {selectedJob.createdAt.toLocaleTimeString()}
                           </span>
                         </div>
                         {selectedJob.completedAt && (
                           <div className="flex items-center gap-2">
-                            <CheckCircle2 className="h-4 w-4 text-green-600" />
+                            <span className="text-green-600">✅</span>
                             <span className="text-green-700">
                               Completed: {selectedJob.completedAt.toLocaleDateString()} at {selectedJob.completedAt.toLocaleTimeString()}
                             </span>
@@ -271,7 +270,7 @@ export function JobManager({ onBack }: JobManagerProps) {
                       variant="outline"
                       className="w-full border-blue-300 text-blue-700 hover:bg-blue-50"
                     >
-                      <Eye className="h-4 w-4 mr-2" />
+                      <span className="mr-2">👁️</span>
                       View Ticket
                     </Button>
 
@@ -281,7 +280,7 @@ export function JobManager({ onBack }: JobManagerProps) {
                           onClick={() => updateJobStatus(selectedJob.id, 'completed')}
                           className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800"
                         >
-                          <CheckCircle className="h-4 w-4 mr-2" />
+                          <span className="mr-2">✅</span>
                           Mark Complete
                         </Button>
                         <Button
@@ -289,7 +288,7 @@ export function JobManager({ onBack }: JobManagerProps) {
                           variant="destructive"
                           className="w-full"
                         >
-                          <XCircle className="h-4 w-4 mr-2" />
+                          <span className="mr-2">❌</span>
                           Cancel Job
                         </Button>
                       </>
@@ -298,7 +297,7 @@ export function JobManager({ onBack }: JobManagerProps) {
                 </div>
               ) : (
                 <div className="text-center py-12">
-                  <Search className="h-16 w-16 text-gray-300 mx-auto mb-4" />
+                  <span className="text-6xl text-gray-300 mx-auto mb-4 block">🔍</span>
                   <p className="text-gray-500">Select a job to view details</p>
                 </div>
               )}
