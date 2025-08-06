@@ -85,8 +85,8 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!customerName.trim() || !selectedMaterialId || !length || !quantity) {
-      alert('Please fill in all fields');
+    if (!customerName.trim() || !selectedMaterialId || parseFloat(length || '0') <= 0 || parseInt(quantity || '0') <= 0) {
+      alert('Please fill in all fields with valid values');
       return;
     }
 
@@ -218,7 +218,7 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
   const selectedMaterial = materials.find(m => m.id === selectedMaterialId);
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white h-screen overflow-hidden flex flex-col">
       {/* Header */}
       <div className="border-b-2 border-black p-4">
         <div className="flex items-center justify-between">
@@ -240,10 +240,10 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
       </div>
 
       {/* Main Content - Single Viewport Grid */}
-      <div className="p-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div className="flex-1 p-4 overflow-hidden">
+        <div className="h-full grid grid-cols-1 lg:grid-cols-2 gap-4">
           {/* Form Section */}
-          <div className="card-base p-4 hover:outline-mint">
+          <div className="card-base p-4 hover:outline-mint overflow-y-auto">
             <div className="flex items-center gap-3 mb-4">
               <User className="h-6 w-6 text-mint" />
               <h2 className="text-2xl font-semibold text-black">JOB DETAILS</h2>
@@ -381,7 +381,7 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
                 type="submit"
                 className="btn-base btn-lg btn-coral w-full font-bold"
                 disabled={!customerName || !selectedMaterialId || 
-                  (measurementSystem === 'imperial' ? (!feet && !inches) : !meters) || !quantity}
+                  (measurementSystem === 'imperial' ? (feet === '' && inches === '') : meters === '') || !quantity}
                 >
                   Create Job - ${calculatedCost.toFixed(2)}
                 </button>
@@ -389,7 +389,7 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
             </div>
 
           {/* Preview Section */}
-          <div className="space-y-4">
+          <div className="space-y-4 overflow-y-auto">
             {/* Cost Breakdown */}
             <div className="card-base p-4 hover:outline-coral">
               <div className="flex items-center gap-3 mb-3">
