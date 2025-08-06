@@ -63,6 +63,18 @@ npm run dev
 
 4. Open your browser and navigate to `http://localhost:3000`
 
+### Deployment
+
+#### Quick Deploy to Vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/cut-order-manager)
+
+#### Manual Deployment
+
+1. Push to GitHub (see `deploy-to-github.md`)
+2. Connect to Vercel and import the repository
+3. Deploy with build command: `npm run build-no-ts`
+
 ### Available Scripts
 
 - `npm run dev` - Start development server
