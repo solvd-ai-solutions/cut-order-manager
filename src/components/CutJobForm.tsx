@@ -220,7 +220,7 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
   return (
     <div className="bg-white min-h-screen">
       {/* Header */}
-      <div className="border-b-2 border-black p-6">
+      <div className="border-b-2 border-black p-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <button 
@@ -240,16 +240,16 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
       </div>
 
       {/* Main Content - Single Viewport Grid */}
-      <div className="p-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="p-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {/* Form Section */}
-          <div className="card-base p-6 hover:outline-mint">
-            <div className="flex items-center gap-3 mb-6">
+          <div className="card-base p-4 hover:outline-mint">
+            <div className="flex items-center gap-3 mb-4">
               <User className="h-6 w-6 text-mint" />
-              <h2 className="text-3xl font-semibold text-black">JOB DETAILS</h2>
+              <h2 className="text-2xl font-semibold text-black">JOB DETAILS</h2>
             </div>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="text-base font-semibold block mb-2">Customer Name</label>
                 <input
@@ -389,49 +389,49 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
             </div>
 
           {/* Preview Section */}
-          <div className="space-y-6">
+          <div className="space-y-4">
             {/* Cost Breakdown */}
-            <div className="card-base p-6 hover:outline-coral">
-              <div className="flex items-center gap-3 mb-4">
-                <Calculator className="h-6 w-6 text-coral" />
-                <h3 className="text-2xl font-semibold text-black">COST BREAKDOWN</h3>
+            <div className="card-base p-4 hover:outline-coral">
+              <div className="flex items-center gap-3 mb-3">
+                <Calculator className="h-5 w-5 text-coral" />
+                <h3 className="text-xl font-semibold text-black">COST BREAKDOWN</h3>
               </div>
               
               {selectedMaterial && length && quantity ? (
-                <div className="space-y-3">
-                  <div className="flex justify-between border-b-2 border-black pb-2">
-                    <span className="text-base">Material Cost:</span>
-                    <span className="text-base">${(selectedMaterial.unitCost * parseFloat(length || '0') * parseInt(quantity || '1')).toFixed(2)}</span>
+                <div className="space-y-2">
+                  <div className="flex justify-between border-b-2 border-black pb-1">
+                    <span className="text-sm">Material Cost:</span>
+                    <span className="text-sm">${(selectedMaterial.unitCost * parseFloat(length || '0') * parseInt(quantity || '1')).toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between border-b-2 border-black pb-2">
-                    <span className="text-base">Labor ($0.25/cut):</span>
-                    <span className="text-base">${(parseInt(quantity || '1') * 0.25).toFixed(2)}</span>
+                  <div className="flex justify-between border-b-2 border-black pb-1">
+                    <span className="text-sm">Labor ($0.25/cut):</span>
+                    <span className="text-sm">${(parseInt(quantity || '1') * 0.25).toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between border-b-2 border-black pb-2">
-                    <span className="text-base">Waste Allowance (15%):</span>
-                    <span className="text-base">${((selectedMaterial.unitCost * parseFloat(length || '0') * parseInt(quantity || '1')) * 0.15).toFixed(2)}</span>
+                  <div className="flex justify-between border-b-2 border-black pb-1">
+                    <span className="text-sm">Waste Allowance (15%):</span>
+                    <span className="text-sm">${((selectedMaterial.unitCost * parseFloat(length || '0') * parseInt(quantity || '1')) * 0.15).toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between border-b-2 border-black pb-2">
-                    <span className="text-base">Markup (25%):</span>
-                    <span className="text-base">${(calculatedCost * 0.2).toFixed(2)}</span>
+                  <div className="flex justify-between border-b-2 border-black pb-1">
+                    <span className="text-sm">Markup (25%):</span>
+                    <span className="text-sm">${(calculatedCost * 0.2).toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between text-xl font-bold pt-3 border-t-2 border-black">
+                  <div className="flex justify-between text-lg font-bold pt-2 border-t-2 border-black">
                     <span>TOTAL:</span>
                     <span>${calculatedCost.toFixed(2)}</span>
                   </div>
                 </div>
               ) : (
-                <p className="text-base text-gray-500 text-center py-8">
+                <p className="text-sm text-gray-500 text-center py-4">
                   Fill in the form to see cost breakdown
                 </p>
               )}
             </div>
 
             {/* Job Summary */}
-            <div className="card-base p-6 hover:outline-lavender">
-              <div className="flex items-center gap-3 mb-4">
-                <FileText className="h-6 w-6 text-lavender" />
-                <h3 className="text-2xl font-semibold text-black">JOB SUMMARY</h3>
+            <div className="card-base p-4 hover:outline-lavender">
+              <div className="flex items-center gap-3 mb-3">
+                <FileText className="h-5 w-5 text-lavender" />
+                <h3 className="text-xl font-semibold text-black">JOB SUMMARY</h3>
               </div>
               
               {customerName && selectedMaterial && length && quantity ? (
