@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ArrowLeft, Calculator, User, Scissors, FileText } from 'lucide-react';
+// Icons replaced with emojis for cleaner design
 import { dataStore } from '../services/dataStore';
 import { Material, CutJob } from '../types';
 
@@ -218,34 +218,33 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
   const selectedMaterial = materials.find(m => m.id === selectedMaterialId);
 
   return (
-    <div className="bg-white h-screen overflow-hidden flex flex-col">
-      {/* Header */}
-      <div className="border-b-2 border-black p-4">
+    <div className="h-screen bg-white flex flex-col">
+      {/* Header - Fixed Height */}
+      <div className="flex-shrink-0 border-b-2 border-black p-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <button 
               onClick={onBack}
               className="btn-base bg-white text-black outline-black hover:outline-mint hover:bg-mint hover:text-white"
             >
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back
+              ⬅️ Back
             </button>
             <div>
-              <h1 className="text-4xl font-bold text-black">CREATE CUT JOB</h1>
-              <p className="text-lg text-gray-600">Generate a new cutting order</p>
+              <h1 className="text-2xl font-bold text-black">CREATE CUT JOB</h1>
+              <p className="text-base text-gray-600">Generate a new cutting order</p>
             </div>
           </div>
-          <Scissors className="h-8 w-8 text-mint stroke-2" />
+          <span className="text-2xl">✂️</span>
         </div>
       </div>
 
-      {/* Main Content - Single Viewport Grid */}
-      <div className="flex-1 p-4 overflow-hidden">
+      {/* Main Content - Takes Remaining Height */}
+      <div className="flex-1 min-h-0 p-4">
         <div className="h-full grid grid-cols-1 lg:grid-cols-2 gap-4">
           {/* Form Section */}
           <div className="card-base p-4 hover:outline-mint overflow-y-auto">
             <div className="flex items-center gap-3 mb-4">
-              <User className="h-6 w-6 text-mint" />
+              <span className="text-xl">👤</span>
               <h2 className="text-2xl font-semibold text-black">JOB DETAILS</h2>
             </div>
             
@@ -393,7 +392,7 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
             {/* Cost Breakdown */}
             <div className="card-base p-4 hover:outline-coral">
               <div className="flex items-center gap-3 mb-3">
-                <Calculator className="h-5 w-5 text-coral" />
+                <span className="text-lg">🧮</span>
                 <h3 className="text-xl font-semibold text-black">COST BREAKDOWN</h3>
               </div>
               
@@ -430,7 +429,7 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
             {/* Job Summary */}
             <div className="card-base p-4 hover:outline-lavender">
               <div className="flex items-center gap-3 mb-3">
-                <FileText className="h-5 w-5 text-lavender" />
+                <span className="text-lg">📄</span>
                 <h3 className="text-xl font-semibold text-black">JOB SUMMARY</h3>
               </div>
               

@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { Alert, AlertDescription } from './ui/alert';
-import { AlertTriangle, Package, Scissors, DollarSign, CheckCircle2, Clock, TrendingUp, Warehouse, ShoppingCart, Plus, Eye } from 'lucide-react';
+// Icons replaced with emojis for cleaner design
 import { dataStore } from '../services/dataStore';
 import { CutJob, ReorderAlert } from '../types';
 
@@ -47,8 +47,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
           onClick={onNewJob} 
           className="btn-base btn-lg btn-coral"
         >
-          <Scissors className="mr-2 h-5 w-5" />
-          New Cut Job
+          ✂️ New Cut Job
         </button>
       </div>
 
@@ -57,7 +56,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
         <div className="card-base p-6 hover:outline-coral">
           <div className="flex justify-between items-center">
             <div className="flex items-start gap-4">
-              <AlertTriangle className="h-6 w-6 text-coral flex-shrink-0 mt-1" />
+              <span className="text-2xl flex-shrink-0">⚠️</span>
               <div>
                 <h3 className="text-xl font-semibold text-black mb-2">
                   🚨 URGENT: {reorderAlerts.length} material(s) need immediate reordering!
@@ -71,8 +70,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
               onClick={onManageInventory}
               className="btn-base btn-coral"
             >
-              <ShoppingCart className="h-4 w-4 mr-2" />
-              Order Now
+              🛒 Order Now
             </button>
           </div>
         </div>
@@ -148,7 +146,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
         <Card className="bg-white border-solv-thick border-black rounded-lg transition-colors duration-200 rounded-lg cursor-pointer" onClick={onViewJobs}>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-black uppercase">Completed Today</CardTitle>
-            <CheckCircle2 className="h-5 w-5 text-[#A6FFE2]" />
+                         <span className="text-lg">✅</span>
           </CardHeader>
           <CardContent>
                          <div className="text-3xl font-bold text-black inline-block px-4 py-2 rounded outline-2 outline-black outline-offset-0" style={{outlineStyle: 'solid'}}>{completedJobs.length}</div>
@@ -161,7 +159,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
         <Card className="bg-white border-solv-thick border-black rounded-lg transition-colors duration-200 rounded-lg cursor-pointer" onClick={onViewJobs}>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-black uppercase">Pending Jobs</CardTitle>
-            <Clock className="h-5 w-5 text-[#C5A6FF]" />
+            <span className="text-lg">🕐</span>
           </CardHeader>
           <CardContent>
                          <div className="text-3xl font-bold text-black inline-block px-4 py-2 rounded outline-2 outline-black outline-offset-0" style={{outlineStyle: 'solid'}}>{pendingJobs.length}</div>
@@ -176,7 +174,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
             <CardTitle className="text-sm font-medium text-black uppercase">
               Low Stock Items
             </CardTitle>
-            <Package className="h-5 w-5 text-[#FF8C82]" />
+            <span className="text-lg">📦</span>
           </CardHeader>
           <CardContent>
                          <div className="text-3xl font-bold text-black inline-block px-4 py-2 rounded outline-2 outline-black outline-offset-0" style={{outlineStyle: 'solid'}}>
@@ -191,7 +189,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
         <Card className="bg-white border-solv-thick border-black rounded-lg transition-colors duration-200">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-black uppercase">Today's Revenue</CardTitle>
-            <TrendingUp className="h-5 w-5 text-[#A6FFE2]" />
+            <span className="text-lg">📈</span>
           </CardHeader>
           <CardContent>
                          <div className="text-3xl font-bold text-black inline-block px-4 py-2 rounded outline-2 outline-black outline-offset-0" style={{outlineStyle: 'solid'}}>${totalRevenue.toFixed(0)}</div>
