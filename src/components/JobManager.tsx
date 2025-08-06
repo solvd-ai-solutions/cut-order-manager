@@ -73,21 +73,26 @@ export function JobManager({ onBack }: JobManagerProps) {
   };
 
   return (
-    <div className="space-y-8">
-      <div className="flex items-center gap-4">
-        <button onClick={onBack} className="btn-base bg-white text-black outline-black hover:outline-mint hover:bg-mint hover:text-white">
-                        <span className="mr-2">⬅️</span>
-          Back to Dashboard
-        </button>
-        <div>
-          <h1 className="text-4xl font-bold text-black">
-            JOB MANAGER
-          </h1>
-          <p className="text-lg text-gray-600">Manage and track all cutting jobs</p>
+    <div className="h-full flex flex-col overflow-hidden">
+      {/* Header - Fixed Height */}
+      <div className="flex-shrink-0 p-4 border-b-2 border-black">
+        <div className="flex items-center gap-4">
+          <button onClick={onBack} className="btn-base bg-white text-black outline-black hover:outline-mint hover:bg-mint hover:text-white">
+                          <span className="mr-2">⬅️</span>
+            Back to Dashboard
+          </button>
+          <div>
+            <h1 className="text-4xl font-bold text-black">
+              JOB MANAGER
+            </h1>
+            <p className="text-lg text-gray-600">Manage and track all cutting jobs</p>
+          </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+      {/* Main Content - Scrollable */}
+      <div className="flex-1 min-h-0 p-4 overflow-y-auto">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
         {/* Jobs List */}
         <div className="xl:col-span-2">
           <div className="card-base hover:outline-lavender">
@@ -303,6 +308,7 @@ export function JobManager({ onBack }: JobManagerProps) {
               )}
             </div>
           </div>
+        </div>
         </div>
       </div>
 
