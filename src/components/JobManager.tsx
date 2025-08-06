@@ -1,9 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { Button } from './ui/button';
 import { Badge } from './ui/badge';
-import { Input } from './ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { ArrowLeft, Search, CheckCircle, XCircle, Eye, Clock, CheckCircle2 } from 'lucide-react';
 import { dataStore } from '../services/dataStore';
 import { CutJob } from '../types';
@@ -170,17 +166,17 @@ export function JobManager({ onBack }: JobManagerProps) {
                   ))
                 )}
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
 
         {/* Job Details */}
         <div>
-          <Card className="shadow-lg sticky top-4">
-            <CardHeader className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-t-lg">
-              <CardTitle className="text-slate-800">Job Details</CardTitle>
-            </CardHeader>
-            <CardContent className="p-6">
+          <div className="card-base sticky top-4 hover:outline-coral">
+            <div className="p-6 border-b-2 border-black">
+              <h3 className="text-2xl font-semibold text-black">JOB DETAILS</h3>
+            </div>
+            <div className="p-6">
               {selectedJob ? (
                 <div className="space-y-6">
                   <div className="text-center">
@@ -306,8 +302,8 @@ export function JobManager({ onBack }: JobManagerProps) {
                   <p className="text-gray-500">Select a job to view details</p>
                 </div>
               )}
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
       </div>
 
