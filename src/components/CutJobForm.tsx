@@ -14,6 +14,12 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
   const [customerName, setCustomerName] = useState('');
   const [length, setLength] = useState('');
   const [quantity, setQuantity] = useState('1');
+  
+  // Measurement system state
+  const [measurementSystem, setMeasurementSystem] = useState<'imperial' | 'metric'>('imperial');
+  const [feet, setFeet] = useState('');
+  const [inches, setInches] = useState('');
+  const [meters, setMeters] = useState('');
 
   const [calculatedCost, setCalculatedCost] = useState(0);
 
@@ -27,7 +33,28 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
 
   useEffect(() => {
     calculateCost();
-  }, [selectedMaterialId, length, quantity]);
+  }, [selectedMaterialId, length, quantity, feet, inches, meters, measurementSystem]);
+
+  // Conversion functions
+  const convertToFeet = (): number => {
+    if (measurementSystem === 'imperial') {
+      const feetNum = parseFloat(feet || '0');
+      const inchesNum = parseFloat(inches || '0');
+      return feetNum + (inchesNum / 12);
+    } else {
+      const metersNum = parseFloat(meters || '0');
+      return metersNum * 3.28084; // Convert meters to feet
+    }
+  };
+
+  const updateLengthFromInputs = () => {
+    const totalFeet = convertToFeet();
+    setLength(totalFeet.toString());
+  };
+
+  useEffect(() => {
+    updateLengthFromInputs();
+  }, [feet, inches, meters, measurementSystem]);
 
   const calculateCost = () => {
     const material = materials.find(m => m.id === selectedMaterialId);
@@ -251,38 +278,110 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
                 </select>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="solv-body font-semibold block mb-2">Length (ft)</label>
-                  <input
-                    type="number"
-                    step="0.1"
-                    min="0.1"
-                    value={length}
-                    onChange={(e) => setLength(e.target.value)}
-                    className="solv-input"
-                    placeholder="0.0"
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="solv-body font-semibold block mb-2">Quantity</label>
-                  <input
-                    type="number"
-                    min="1"
-                    value={quantity}
-                    onChange={(e) => setQuantity(e.target.value)}
-                    className="solv-input"
-                    placeholder="1"
-                    required
-                  />
+              {/* Measurement System Toggle */}
+              <div>
+                <label className="solv-body font-semibold block mb-2">Measurement System</label>
+                <div className="flex gap-4">
+                  <button
+                    type="button"
+                    onClick={() => setMeasurementSystem('imperial')}
+                    className={`px-4 py-2 rounded border-2 font-semibold transition-colors ${
+                      measurementSystem === 'imperial'
+                        ? 'bg-solv-teal text-white border-solv-teal'
+                        : 'bg-white text-black border-black hover:bg-gray-50'
+                    }`}
+                  >
+                    Imperial (ft/in)
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setMeasurementSystem('metric')}
+                    className={`px-4 py-2 rounded border-2 font-semibold transition-colors ${
+                      measurementSystem === 'metric'
+                        ? 'bg-solv-teal text-white border-solv-teal'
+                        : 'bg-white text-black border-black hover:bg-gray-50'
+                    }`}
+                  >
+                    Metric (m)
+                  </button>
                 </div>
               </div>
+
+              {/* Length Inputs */}
+              {measurementSystem === 'imperial' ? (
+                <div className="grid grid-cols-3 gap-4">
+                  <div>
+                    <label className="solv-body font-semibold block mb-2">Feet</label>
+                    <input
+                      type="number"
+                      min="0"
+                      value={feet}
+                      onChange={(e) => setFeet(e.target.value)}
+                      className="solv-input"
+                      placeholder="0"
+                    />
+                  </div>
+                  <div>
+                    <label className="solv-body font-semibold block mb-2">Inches</label>
+                    <input
+                      type="number"
+                      min="0"
+                      max="11.99"
+                      step="0.01"
+                      value={inches}
+                      onChange={(e) => setInches(e.target.value)}
+                      className="solv-input"
+                      placeholder="0"
+                    />
+                  </div>
+                  <div>
+                    <label className="solv-body font-semibold block mb-2">Quantity</label>
+                    <input
+                      type="number"
+                      min="1"
+                      value={quantity}
+                      onChange={(e) => setQuantity(e.target.value)}
+                      className="solv-input"
+                      placeholder="1"
+                      required
+                    />
+                  </div>
+                </div>
+              ) : (
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="solv-body font-semibold block mb-2">Length (meters)</label>
+                    <input
+                      type="number"
+                      step="0.01"
+                      min="0.01"
+                      value={meters}
+                      onChange={(e) => setMeters(e.target.value)}
+                      className="solv-input"
+                      placeholder="0.00"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="solv-body font-semibold block mb-2">Quantity</label>
+                    <input
+                      type="number"
+                      min="1"
+                      value={quantity}
+                      onChange={(e) => setQuantity(e.target.value)}
+                      className="solv-input"
+                      placeholder="1"
+                      required
+                    />
+                  </div>
+                </div>
+              )}
 
               <button
                 type="submit"
                 className="solv-button-primary w-full text-lg py-3"
-                disabled={!customerName || !selectedMaterialId || !length || !quantity}
+                disabled={!customerName || !selectedMaterialId || 
+                  (measurementSystem === 'imperial' ? (!feet && !inches) : !meters) || !quantity}
               >
                 Create Job - ${calculatedCost.toFixed(2)}
               </button>
@@ -339,7 +438,13 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
                 <div className="space-y-2">
                   <p className="solv-body"><strong>Customer:</strong> {customerName}</p>
                   <p className="solv-body"><strong>Material:</strong> {selectedMaterial.name}</p>
-                  <p className="solv-body"><strong>Specifications:</strong> {length}ft × {quantity} pieces</p>
+                  <p className="solv-body">
+                    <strong>Specifications:</strong> {
+                      measurementSystem === 'imperial' 
+                        ? `${feet || '0'}' ${inches || '0'}" × ${quantity} pieces`
+                        : `${meters || '0'}m × ${quantity} pieces`
+                    }
+                  </p>
                   <p className="solv-body"><strong>Total Length:</strong> {(parseFloat(length) * parseInt(quantity)).toFixed(1)}ft</p>
                   <p className="solv-body"><strong>Stock After Cut:</strong> {(selectedMaterial.currentStock - (parseFloat(length || '0') * parseInt(quantity || '1'))).toFixed(1)}ft</p>
                 </div>
