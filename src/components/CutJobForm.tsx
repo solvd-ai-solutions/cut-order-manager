@@ -280,15 +280,15 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
 
               {/* Measurement System Toggle */}
               <div>
-                <label className="solv-body font-semibold block mb-2">Measurement System</label>
+                <label className="text-base font-semibold block mb-2">Measurement System</label>
                 <div className="flex gap-4">
                   <button
                     type="button"
                     onClick={() => setMeasurementSystem('imperial')}
-                    className={`px-4 py-2 rounded border-2 font-semibold transition-colors ${
+                    className={`btn-base ${
                       measurementSystem === 'imperial'
-                        ? 'bg-solv-teal text-white border-solv-teal'
-                        : 'bg-white text-black border-black hover:bg-gray-50'
+                        ? 'btn-mint'
+                        : 'bg-white text-black outline-black hover:outline-mint hover:bg-mint hover:text-white'
                     }`}
                   >
                     Imperial (ft/in)
@@ -296,10 +296,10 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
                   <button
                     type="button"
                     onClick={() => setMeasurementSystem('metric')}
-                    className={`px-4 py-2 rounded border-2 font-semibold transition-colors ${
+                    className={`btn-base ${
                       measurementSystem === 'metric'
-                        ? 'bg-solv-teal text-white border-solv-teal'
-                        : 'bg-white text-black border-black hover:bg-gray-50'
+                        ? 'btn-mint'
+                        : 'bg-white text-black outline-black hover:outline-mint hover:bg-mint hover:text-white'
                     }`}
                   >
                     Metric (m)
@@ -311,18 +311,18 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
               {measurementSystem === 'imperial' ? (
                 <div className="grid grid-cols-3 gap-4">
                   <div>
-                    <label className="solv-body font-semibold block mb-2">Feet</label>
+                    <label className="text-base font-semibold block mb-2">Feet</label>
                     <input
                       type="number"
                       min="0"
                       value={feet}
                       onChange={(e) => setFeet(e.target.value)}
-                      className="solv-input"
+                      className="input-base"
                       placeholder="0"
                     />
                   </div>
                   <div>
-                    <label className="solv-body font-semibold block mb-2">Inches</label>
+                    <label className="text-base font-semibold block mb-2">Inches</label>
                     <input
                       type="number"
                       min="0"
@@ -330,18 +330,18 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
                       step="0.01"
                       value={inches}
                       onChange={(e) => setInches(e.target.value)}
-                      className="solv-input"
+                      className="input-base"
                       placeholder="0"
                     />
                   </div>
                   <div>
-                    <label className="solv-body font-semibold block mb-2">Quantity</label>
+                    <label className="text-base font-semibold block mb-2">Quantity</label>
                     <input
                       type="number"
                       min="1"
                       value={quantity}
                       onChange={(e) => setQuantity(e.target.value)}
-                      className="solv-input"
+                      className="input-base"
                       placeholder="1"
                       required
                     />
@@ -350,26 +350,26 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
               ) : (
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="solv-body font-semibold block mb-2">Length (meters)</label>
+                    <label className="text-base font-semibold block mb-2">Length (meters)</label>
                     <input
                       type="number"
                       step="0.01"
                       min="0.01"
                       value={meters}
                       onChange={(e) => setMeters(e.target.value)}
-                      className="solv-input"
+                      className="input-base"
                       placeholder="0.00"
                       required
                     />
                   </div>
                   <div>
-                    <label className="solv-body font-semibold block mb-2">Quantity</label>
+                    <label className="text-base font-semibold block mb-2">Quantity</label>
                     <input
                       type="number"
                       min="1"
                       value={quantity}
                       onChange={(e) => setQuantity(e.target.value)}
-                      className="solv-input"
+                      className="input-base"
                       placeholder="1"
                       required
                     />
@@ -379,59 +379,59 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
 
               <button
                 type="submit"
-                className="solv-button-primary w-full text-lg py-3"
+                className="btn-base btn-lg btn-coral w-full font-bold"
                 disabled={!customerName || !selectedMaterialId || 
                   (measurementSystem === 'imperial' ? (!feet && !inches) : !meters) || !quantity}
-              >
-                Create Job - ${calculatedCost.toFixed(2)}
-              </button>
-            </form>
-          </div>
+                >
+                  Create Job - ${calculatedCost.toFixed(2)}
+                </button>
+              </form>
+            </div>
 
           {/* Preview Section */}
           <div className="space-y-6 h-full overflow-auto">
             {/* Cost Breakdown */}
-            <div className="solv-card">
-              <div className="flex items-center gap-2 mb-4">
-                <Calculator className="h-5 w-5 text-solv-coral stroke-2" />
-                <h2 className="solv-h2">Cost Breakdown</h2>
+            <div className="card-base p-6 hover:outline-coral">
+              <div className="flex items-center gap-3 mb-4">
+                <Calculator className="h-6 w-6 text-coral" />
+                <h3 className="text-2xl font-semibold text-black">COST BREAKDOWN</h3>
               </div>
               
               {selectedMaterial && length && quantity ? (
                 <div className="space-y-3">
-                  <div className="flex justify-between border-b border-gray-300 pb-2">
-                    <span className="solv-body">Material Cost:</span>
-                    <span className="solv-body">${(selectedMaterial.unitCost * parseFloat(length || '0') * parseInt(quantity || '1')).toFixed(2)}</span>
+                  <div className="flex justify-between border-b-2 border-black pb-2">
+                    <span className="text-base">Material Cost:</span>
+                    <span className="text-base">${(selectedMaterial.unitCost * parseFloat(length || '0') * parseInt(quantity || '1')).toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between border-b border-gray-300 pb-2">
-                    <span className="solv-body">Labor ($0.25/cut):</span>
-                    <span className="solv-body">${(parseInt(quantity || '1') * 0.25).toFixed(2)}</span>
+                  <div className="flex justify-between border-b-2 border-black pb-2">
+                    <span className="text-base">Labor ($0.25/cut):</span>
+                    <span className="text-base">${(parseInt(quantity || '1') * 0.25).toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between border-b border-gray-300 pb-2">
-                    <span className="solv-body">Waste Allowance (15%):</span>
-                    <span className="solv-body">${((selectedMaterial.unitCost * parseFloat(length || '0') * parseInt(quantity || '1')) * 0.15).toFixed(2)}</span>
+                  <div className="flex justify-between border-b-2 border-black pb-2">
+                    <span className="text-base">Waste Allowance (15%):</span>
+                    <span className="text-base">${((selectedMaterial.unitCost * parseFloat(length || '0') * parseInt(quantity || '1')) * 0.15).toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between border-b border-gray-300 pb-2">
-                    <span className="solv-body">Markup (25%):</span>
-                    <span className="solv-body">${(calculatedCost * 0.2).toFixed(2)}</span>
+                  <div className="flex justify-between border-b-2 border-black pb-2">
+                    <span className="text-base">Markup (25%):</span>
+                    <span className="text-base">${(calculatedCost * 0.2).toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between text-lg font-bold pt-2 border-t-2 border-black">
+                  <div className="flex justify-between text-xl font-bold pt-3 border-t-2 border-black">
                     <span>TOTAL:</span>
                     <span>${calculatedCost.toFixed(2)}</span>
                   </div>
                 </div>
               ) : (
-                <p className="solv-body text-gray-500 text-center py-8">
+                <p className="text-base text-gray-500 text-center py-8">
                   Fill in the form to see cost breakdown
                 </p>
               )}
             </div>
 
             {/* Job Summary */}
-            <div className="solv-card">
-              <div className="flex items-center gap-2 mb-4">
-                <FileText className="h-5 w-5 text-solv-lavender stroke-2" />
-                <h2 className="solv-h2">Job Summary</h2>
+            <div className="card-base p-6 hover:outline-lavender">
+              <div className="flex items-center gap-3 mb-4">
+                <FileText className="h-6 w-6 text-lavender" />
+                <h3 className="text-2xl font-semibold text-black">JOB SUMMARY</h3>
               </div>
               
               {customerName && selectedMaterial && length && quantity ? (
