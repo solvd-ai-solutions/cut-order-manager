@@ -1,0 +1,309 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Solv Solutions Design Tokens */
+  --solv-black: #000000;
+  --solv-white: #FFFFFF;
+  --solv-teal: #4FB3A6;
+  --solv-coral: #F29E8E;
+  --solv-lavender: #C5A3E0;
+  
+  /* Typography */
+  --solv-h1-size: 28px;
+  --solv-h1-height: 36px;
+  --solv-h2-size: 20px;
+  --solv-h2-height: 28px;
+  --solv-body-size: 16px;
+  --solv-body-height: 24px;
+  --solv-small-size: 14px;
+  --solv-small-height: 20px;
+  
+  /* Spacing */
+  --solv-container-padding: 24px;
+  --solv-component-spacing: 16px;
+  --solv-grid-gap: 16px;
+  --solv-border-radius: 8px;
+  --solv-border-width: 2px;
+  
+  /* Original tokens for compatibility */
+  --font-size: 14px;
+  --background: #ffffff;
+  --foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --popover: #ffffff;
+  --popover-foreground: #000000;
+  --primary: #4FB3A6;
+  --primary-foreground: #ffffff;
+  --secondary: #F29E8E;
+  --secondary-foreground: #000000;
+  --muted: #f5f5f5;
+  --muted-foreground: #666666;
+  --accent: #C5A3E0;
+  --accent-foreground: #000000;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #000000;
+  --input: #ffffff;
+  --input-background: #ffffff;
+  --switch-background: #cbced4;
+  --font-weight-medium: 600;
+  --font-weight-normal: 400;
+  --ring: #4FB3A6;
+  --radius: 8px;
+}
+
+.dark {
+  --background: #000000;
+  --foreground: #ffffff;
+  --card: #000000;
+  --card-foreground: #ffffff;
+  --border: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-black;
+  }
+
+  body {
+    @apply bg-white text-black;
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* Solv Solutions Typography */
+@layer base {
+  .solv-h1 {
+    font-size: var(--solv-h1-size);
+    line-height: var(--solv-h1-height);
+    font-weight: 600;
+    color: var(--solv-black);
+  }
+  
+  .solv-h2 {
+    font-size: var(--solv-h2-size);
+    line-height: var(--solv-h2-height);
+    font-weight: 600;
+    color: var(--solv-black);
+  }
+  
+  .solv-body {
+    font-size: var(--solv-body-size);
+    line-height: var(--solv-body-height);
+    font-weight: 400;
+    color: var(--solv-black);
+  }
+  
+  .solv-small {
+    font-size: var(--solv-small-size);
+    line-height: var(--solv-small-height);
+    font-weight: 400;
+    color: var(--solv-black);
+  }
+}
+
+/* Solv Solutions Components */
+@layer components {
+  .solv-card {
+    background: var(--solv-white);
+    border: var(--solv-border-width) solid var(--solv-black);
+    border-radius: var(--solv-border-radius);
+    padding: var(--solv-container-padding);
+  }
+  
+  .solv-button-primary {
+    background: var(--solv-teal);
+    color: var(--solv-white);
+    border: none;
+    border-radius: var(--solv-border-radius);
+    padding: 8px 16px;
+    font-size: var(--solv-body-size);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .solv-button-primary:hover {
+    background: #3a9088;
+  }
+  
+  .solv-button-secondary {
+    background: transparent;
+    color: var(--solv-black);
+    border: var(--solv-border-width) solid var(--solv-coral);
+    border-radius: var(--solv-border-radius);
+    padding: 8px 16px;
+    font-size: var(--solv-body-size);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .solv-button-secondary:hover {
+    background: #f8e9e5;
+  }
+  
+  .solv-input {
+    background: var(--solv-white);
+    border: var(--solv-border-width) solid var(--solv-black);
+    border-radius: var(--solv-border-radius);
+    padding: 8px 12px;
+    font-size: var(--solv-body-size);
+    color: var(--solv-black);
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .solv-input:focus {
+    outline: none;
+    border-color: var(--solv-teal);
+  }
+  
+  .solv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--solv-grid-gap);
+  }
+  
+  .solv-status-success {
+    background: rgba(79, 179, 166, 0.1);
+    border: var(--solv-border-width) solid var(--solv-black);
+    color: var(--solv-black);
+    padding: 12px;
+    border-radius: var(--solv-border-radius);
+  }
+  
+  .solv-status-warning {
+    background: rgba(242, 158, 142, 0.1);
+    border: var(--solv-border-width) solid var(--solv-black);
+    color: var(--solv-black);
+    padding: 12px;
+    border-radius: var(--solv-border-radius);
+  }
+  
+  .solv-status-info {
+    background: rgba(197, 163, 224, 0.1);
+    border: var(--solv-border-width) solid var(--solv-black);
+    color: var(--solv-black);
+    padding: 12px;
+    border-radius: var(--solv-border-radius);
+  }
+}
+
+/* Responsive Typography */
+@layer base {
+  h1 {
+    font-size: clamp(24px, 5vw, var(--solv-h1-size));
+    line-height: var(--solv-h1-height);
+    font-weight: 600;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: clamp(18px, 4vw, var(--solv-h2-size));
+    line-height: var(--solv-h2-height);
+    font-weight: 600;
+    margin: 0;
+  }
+
+  p {
+    font-size: clamp(14px, 3vw, var(--solv-body-size));
+    line-height: var(--solv-body-height);
+    font-weight: 400;
+    margin: 0;
+  }
+
+  label {
+    font-size: var(--solv-body-size);
+    font-weight: 400;
+    color: var(--solv-black);
+  }
+
+  button {
+    font-size: var(--solv-body-size);
+    font-weight: 600;
+  }
+
+  input {
+    font-size: var(--solv-body-size);
+    font-weight: 400;
+  }
+}
+
+html {
+  font-size: 16px;
+}
+
+/* Override Tailwind defaults for Solv design */
+@layer utilities {
+  .border-solv {
+    border: 2px solid var(--solv-black) !important;
+  }
+  
+  .rounded-solv {
+    border-radius: var(--solv-border-radius) !important;
+  }
+  
+  .bg-solv-teal {
+    background-color: var(--solv-teal) !important;
+  }
+  
+  .bg-solv-coral {
+    background-color: var(--solv-coral) !important;
+  }
+  
+  .bg-solv-lavender {
+    background-color: var(--solv-lavender) !important;
+  }
+  
+  .text-solv-white {
+    color: var(--solv-white) !important;
+  }
+  
+  .text-solv-black {
+    color: var(--solv-black) !important;
+  }
+  
+  .border-solv-teal {
+    border-color: var(--solv-teal) !important;
+  }
+  
+  .border-solv-coral {
+    border-color: var(--solv-coral) !important;
+  }
+}
