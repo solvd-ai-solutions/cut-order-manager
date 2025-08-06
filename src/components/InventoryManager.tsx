@@ -607,7 +607,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
           Back to Dashboard
         </Button>
         <div>
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-solv-teal to-solv-lavender bg-clip-text text-transparent">
+          <h1 className="text-3xl font-bold text-black uppercase">
             Inventory Manager
           </h1>
           <p className="text-gray-600">Track stock levels and manage materials</p>
@@ -616,9 +616,9 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
 
       {/* Critical Reorder Alerts */}
       {reorderAlerts.length > 0 && (
-        <Alert className="border-solv-coral bg-gradient-to-r from-red-50 to-orange-50 shadow-lg">
-          <AlertTriangle className="h-5 w-5 text-solv-coral animate-pulse" />
-          <AlertDescription className="text-solv-coral">
+        <Alert className="border border-[#FF8C82] bg-white">
+          <AlertTriangle className="h-5 w-5 text-[#FF8C82]" />
+          <AlertDescription className="text-black">
             <div className="flex justify-between items-center">
               <div>
                 <span className="font-bold text-lg">
@@ -631,7 +631,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
               <div className="flex gap-2">
                 <Button
                   onClick={() => setShowPurchaseOrders(true)}
-                  className="bg-gradient-to-r from-solv-coral to-red-600 hover:from-red-700 hover:to-orange-700 shadow-lg animate-pulse"
+                  className="bg-[#FF8C82] text-white border border-[#FF8C82] hover:bg-white hover:text-[#FF8C82]"
                 >
                   <ShoppingCart className="h-4 w-4 mr-2" />
                   ORDER NOW
@@ -640,7 +640,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
                   variant="outline"
                   size="sm"
                   onClick={generateReorderReport}
-                  className="text-solv-coral border-solv-coral hover:bg-red-50"
+                  className="text-[#FF8C82] border-[#FF8C82] hover:bg-[#FF8C82] hover:text-white"
                 >
                   <FileText className="h-4 w-4 mr-2" />
                   Report
@@ -652,9 +652,9 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
       )}
 
       {/* Bulk Selection Controls */}
-      <Card className="bg-gradient-to-r from-purple-50 to-indigo-50 border-solv-lavender shadow-lg">
+      <Card className="bg-white border border-black hover:border-[#C5A6FF] hover:scale-105 transition-all duration-200 cursor-pointer">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-solv-lavender">
+          <CardTitle className="flex items-center gap-2 text-black uppercase">
             <CheckSquare className="h-6 w-6" />
             Bulk Material Selection ({selectedMaterials.size} selected)
           </CardTitle>
@@ -666,7 +666,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
                 onClick={handleSelectAll}
                 variant="outline"
                 size="sm"
-                className="border-solv-lavender text-solv-lavender hover:bg-purple-50"
+                className="border-[#C5A6FF] text-[#C5A6FF] hover:bg-[#C5A6FF] hover:text-white"
               >
                 <CheckSquare className="h-4 w-4 mr-2" />
                 Select All ({materials.length})
@@ -675,7 +675,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
                 onClick={handleSelectLowStock}
                 variant="outline"
                 size="sm"
-                className="border-solv-coral text-solv-coral hover:bg-orange-50"
+                className="border-[#FF8C82] text-[#FF8C82] hover:bg-[#FF8C82] hover:text-white"
               >
                 <AlertTriangle className="h-4 w-4 mr-2" />
                 Select Low Stock ({reorderAlerts.length})
@@ -684,7 +684,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
                 onClick={handleSelectNone}
                 variant="outline"
                 size="sm"
-                className="border-gray-300 text-gray-700 hover:bg-gray-50"
+                className="border-black text-black hover:bg-black hover:text-white"
               >
                 <Square className="h-4 w-4 mr-2" />
                 Clear Selection
@@ -694,7 +694,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
             <Button
               onClick={handleBulkReorder}
               disabled={selectedMaterials.size === 0}
-              className="bg-gradient-to-r from-solv-teal to-emerald-600 hover:from-green-700 hover:to-emerald-700 font-bold"
+              className="bg-[#A6FFE2] text-black border border-[#A6FFE2] hover:bg-white hover:text-[#A6FFE2] font-bold"
             >
               <Lock className="h-4 w-4 mr-2" />
               Reorder Selected Inventory ({selectedMaterials.size})
@@ -702,11 +702,11 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
           </div>
           
           {selectedMaterials.size > 0 && (
-            <div className="mt-4 p-4 bg-white rounded-lg border border-solv-lavender">
-              <h4 className="font-semibold text-solv-lavender mb-2">Selected for Reorder:</h4>
+            <div className="mt-4 p-6 bg-white rounded-lg border border-black">
+              <h4 className="font-semibold text-black mb-2 uppercase">Selected for Reorder:</h4>
               <div className="flex flex-wrap gap-2">
                 {getSelectedMaterials().map(material => (
-                  <Badge key={material.id} variant="outline" className="bg-purple-50 text-solv-lavender border-solv-lavender">
+                  <Badge key={material.id} variant="outline" className="bg-white text-[#C5A6FF] border-[#C5A6FF]">
                     {material.name} ({material.supplier})
                   </Badge>
                 ))}
@@ -717,58 +717,58 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
       </Card>
 
       {/* Supplier Ordering Section */}
-      <Card className="bg-gradient-to-r from-orange-50 to-red-50 border-solv-coral shadow-lg">
+      <Card className="bg-white border border-black hover:border-[#FF8C82] hover:scale-105 transition-all duration-200 cursor-pointer">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-solv-coral">
+          <CardTitle className="flex items-center gap-2 text-black uppercase">
             <ShoppingCart className="h-6 w-6" />
             Supplier Ordering Center
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-solv-coral to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-center p-6 border border-black hover:border-[#FF8C82] hover:scale-105 transition-all duration-200 cursor-pointer bg-white">
+              <div className="w-16 h-16 bg-[#FF8C82] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Zap className="h-8 w-8 text-white" />
               </div>
-              <h3 className="font-bold text-solv-coral mb-2">Quick Order All</h3>
-              <p className="text-sm text-orange-700 mb-4">Order all low stock items at once</p>
+              <h3 className="font-bold text-black mb-2 uppercase">Quick Order All</h3>
+              <p className="text-sm text-gray-600 mb-4">Order all low stock items at once</p>
               <Button
                 onClick={() => setShowPurchaseOrders(true)}
                 disabled={reorderAlerts.length === 0}
-                className="bg-gradient-to-r from-solv-coral to-orange-600 hover:from-red-700 hover:to-orange-700 w-full"
+                className="bg-[#FF8C82] text-white border border-[#FF8C82] hover:bg-white hover:text-[#FF8C82] w-full"
               >
                 <ShoppingCart className="h-4 w-4 mr-2" />
                 Order All ({reorderAlerts.length})
               </Button>
             </div>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-solv-lavender to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-center p-6 border border-black hover:border-[#C5A6FF] hover:scale-105 transition-all duration-200 cursor-pointer bg-white">
+              <div className="w-16 h-16 bg-[#C5A6FF] rounded-full flex items-center justify-center mx-auto mb-4">
                 <FileText className="h-8 w-8 text-white" />
               </div>
-              <h3 className="font-bold text-solv-lavender mb-2">Generate Report</h3>
-              <p className="text-sm text-blue-700 mb-4">Create printable reorder report</p>
+              <h3 className="font-bold text-black mb-2 uppercase">Generate Report</h3>
+              <p className="text-sm text-gray-600 mb-4">Create printable reorder report</p>
               <Button
                 onClick={generateReorderReport}
                 disabled={reorderAlerts.length === 0}
                 variant="outline"
-                className="border-solv-lavender text-solv-lavender hover:bg-blue-50 w-full"
+                className="border-[#C5A6FF] text-[#C5A6FF] hover:bg-[#C5A6FF] hover:text-white w-full"
               >
                 <Download className="h-4 w-4 mr-2" />
                 Generate Report
               </Button>
             </div>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-solv-teal to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Plus className="h-8 w-8 text-white" />
+            <div className="text-center p-6 border border-black hover:border-[#A6FFE2] hover:scale-105 transition-all duration-200 cursor-pointer bg-white">
+              <div className="w-16 h-16 bg-[#A6FFE2] rounded-full flex items-center justify-center mx-auto mb-4">
+                <Plus className="h-8 w-8 text-black" />
               </div>
-              <h3 className="font-bold text-solv-teal mb-2">Add Material</h3>
-              <p className="text-sm text-green-700 mb-4">Add new materials to inventory</p>
+              <h3 className="font-bold text-black mb-2 uppercase">Add Material</h3>
+              <p className="text-sm text-gray-600 mb-4">Add new materials to inventory</p>
               <Button
                 onClick={openAddDialog}
                 variant="outline"
-                className="border-solv-teal text-solv-teal hover:bg-green-50 w-full"
+                className="border-[#A6FFE2] text-[#A6FFE2] hover:bg-[#A6FFE2] hover:text-black w-full"
               >
                 <Plus className="h-4 w-4 mr-2" />
                 Add Material
@@ -777,8 +777,8 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
           </div>
 
           {reorderAlerts.length > 0 && (
-            <div className="mt-6 p-4 bg-white rounded-lg border border-solv-coral">
-              <h4 className="font-semibold text-solv-coral mb-3">📋 Materials Needing Immediate Attention:</h4>
+            <div className="mt-6 p-6 bg-white rounded-lg border border-[#FF8C82]">
+              <h4 className="font-semibold text-black mb-3 uppercase">📋 Materials Needing Immediate Attention:</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                 {reorderAlerts.map(alert => (
                   <div key={alert.materialId} className="p-3 bg-red-50 rounded-lg border border-red-200">
@@ -801,18 +801,18 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
       </Card>
 
       {/* Materials List */}
-      <Card className="shadow-lg">
-        <CardHeader className="bg-gradient-to-r from-slate-50 to-gray-50 rounded-t-lg">
+      <Card className="bg-white border border-black hover:border-[#A6FFE2] hover:scale-105 transition-all duration-200 cursor-pointer">
+        <CardHeader className="bg-white border-b border-black">
           <div className="flex justify-between items-center">
-            <CardTitle className="flex items-center gap-2 text-slate-800">
-              <Warehouse className="h-5 w-5 text-solv-teal" />
+            <CardTitle className="flex items-center gap-2 text-black uppercase">
+              <Warehouse className="h-5 w-5 text-[#A6FFE2]" />
               Materials Inventory
             </CardTitle>
             <Dialog open={isAddingMaterial} onOpenChange={setIsAddingMaterial}>
               <DialogTrigger asChild>
                 <Button 
                   onClick={openAddDialog}
-                  className="bg-gradient-to-r from-solv-teal to-green-700 hover:from-green-700 hover:to-green-800"
+                  className="bg-[#A6FFE2] text-black border border-[#A6FFE2] hover:bg-white hover:text-[#A6FFE2]"
                 >
                   <Plus className="h-4 w-4 mr-2" />
                   Add Material
@@ -917,7 +917,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
               </div>
             ) : (
               materials.map(material => (
-                <div key={material.id} className="border border-gray-200 rounded-xl p-6 bg-gradient-to-r from-white to-gray-50 hover:shadow-lg transition-all duration-300">
+                <div key={material.id} className="border border-black rounded-lg p-6 bg-white hover:border-[#A6FFE2] hover:scale-105 transition-all duration-200 cursor-pointer">
                   <div className="flex justify-between items-start mb-4">
                     <div className="flex items-center gap-3">
                       <Checkbox
@@ -939,7 +939,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
                         <Button
                           size="sm"
                           onClick={() => quickOrderMaterial(material)}
-                          className="bg-gradient-to-r from-solv-coral to-red-600 hover:from-orange-700 hover:to-red-700 text-xs animate-pulse"
+                          className="bg-[#FF8C82] text-white border border-[#FF8C82] hover:bg-white hover:text-[#FF8C82] text-xs"
                         >
                           <Send className="h-3 w-3 mr-1" />
                           Quick Order
@@ -1079,7 +1079,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
       <Dialog open={showBulkReorderDialog} onOpenChange={setShowBulkReorderDialog}>
         <DialogContent className="max-w-md">
           <DialogHeader>
-            <DialogTitle className="flex items-center gap-2 text-solv-coral">
+            <DialogTitle className="flex items-center gap-2 text-black uppercase">
               <Lock className="h-5 w-5" />
               Manager Authorization Required
             </DialogTitle>
@@ -1100,7 +1100,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
             </div>
 
             <div>
-              <Label htmlFor="password" className="text-solv-coral font-semibold">Manager Password</Label>
+              <Label htmlFor="password" className="text-black font-semibold uppercase">Manager Password</Label>
               <Input
                 id="password"
                 type="password"
@@ -1120,7 +1120,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
             <div className="flex gap-3 pt-4">
               <Button
                 onClick={confirmBulkReorder}
-                className="flex-1 bg-gradient-to-r from-solv-coral to-orange-600 hover:from-red-700 hover:to-orange-700"
+                className="flex-1 bg-[#FF8C82] text-white border border-[#FF8C82] hover:bg-white hover:text-[#FF8C82]"
               >
                 <Lock className="h-4 w-4 mr-2" />
                 Authorize & Reorder
