@@ -781,7 +781,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
                   Add Material
                 </button>
               </DialogTrigger>
-              <DialogContent className="max-w-md">
+              <DialogContent className="max-w-md bg-white border-2 border-black rounded-lg p-6">
                 <DialogHeader>
                   <DialogTitle>Add New Material</DialogTitle>
                   <DialogDescription>
@@ -914,7 +914,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
                             <Edit className="h-4 w-4" />
                           </Button>
                         </DialogTrigger>
-                        <DialogContent className="max-w-md">
+                        <DialogContent className="max-w-md bg-white border-2 border-black rounded-lg p-6">
                           <DialogHeader>
                             <DialogTitle>Edit Material</DialogTitle>
                             <DialogDescription>
@@ -1040,7 +1040,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
 
       {/* Bulk Reorder Confirmation Dialog */}
       <Dialog open={showBulkReorderDialog} onOpenChange={setShowBulkReorderDialog}>
-        <DialogContent className="max-w-md">
+        <DialogContent className="max-w-md bg-white border-2 border-black rounded-lg p-6">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2 text-black uppercase">
               <Lock className="h-5 w-5" />

@@ -163,7 +163,7 @@ export function TicketPreviewModal({ isOpen, onClose, ticket }: TicketPreviewMod
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto bg-gradient-to-br from-white to-gray-50">
+      <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto bg-white border-2 border-black rounded-lg p-6">
         <DialogHeader className="space-y-4">
           <div className="flex items-center justify-between">
             <DialogTitle className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
