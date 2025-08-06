@@ -600,9 +600,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
   };
 
   return (
-    <div className="h-full flex flex-col overflow-hidden">
-      {/* Header - Fixed Height */}
-      <div className="flex-shrink-0 p-4 border-b-2 border-black">
+    <div className="space-y-8">
       <div className="flex items-center gap-4">
         <button onClick={onBack} className="btn-base bg-white text-black outline-black hover:outline-mint hover:bg-mint hover:text-white">
                           <span className="mr-2">⬅️</span>
@@ -615,11 +613,8 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
           <p className="text-lg text-gray-600">Track stock levels and manage materials</p>
         </div>
       </div>
-      </div>
 
-      {/* Main Content - Scrollable */}
-      <div className="flex-1 min-h-0 p-4 overflow-y-auto space-y-6">
-        {/* Critical Reorder Alerts */}
+      {/* Critical Reorder Alerts */}
       {reorderAlerts.length > 0 && (
         <div className="card-base p-6 hover:outline-coral">
           <div className="flex justify-between items-center">
@@ -724,7 +719,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
               disabled={reorderAlerts.length === 0}
               className="btn-base btn-coral w-full"
             >
-                              <span className="mr-2">🛒</span>
+              <span className="mr-2">🛒</span>
               Order All ({reorderAlerts.length})
             </button>
           </div>
@@ -761,7 +756,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
               onClick={openAddDialog}
               className="btn-base bg-white text-mint outline-mint hover:outline-black hover:bg-mint hover:text-white w-full"
             >
-                              <span className="mr-2">➕</span>
+              <span className="mr-2">➕</span>
               Add Material
             </button>
           </div>
@@ -1107,8 +1102,6 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
           </div>
         </DialogContent>
       </Dialog>
-
-      </div>
 
       {/* Purchase Order Modal */}
       <PurchaseOrderModal

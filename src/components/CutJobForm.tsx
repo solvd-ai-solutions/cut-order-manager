@@ -220,53 +220,53 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
   return (
     <div className="h-screen bg-white flex flex-col">
       {/* Header - Fixed Height */}
-      <div className="flex-shrink-0 border-b-2 border-black p-3">
+      <div className="flex-shrink-0 border-b-2 border-black p-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <button 
               onClick={onBack}
-              className="btn-base bg-white text-black outline-black hover:outline-mint hover:bg-mint hover:text-white text-sm px-3 py-1"
+              className="btn-base bg-white text-black outline-black hover:outline-mint hover:bg-mint hover:text-white"
             >
               ⬅️ Back
             </button>
             <div>
-              <h1 className="text-lg font-bold text-black">CREATE CUT JOB</h1>
-              <p className="text-sm text-gray-600">Generate a new cutting order</p>
+              <h1 className="text-2xl font-bold text-black">CREATE CUT JOB</h1>
+              <p className="text-base text-gray-600">Generate a new cutting order</p>
             </div>
           </div>
-          <span className="text-lg">✂️</span>
+          <span className="text-2xl">✂️</span>
         </div>
       </div>
 
       {/* Main Content - Takes Remaining Height */}
-      <div className="flex-1 min-h-0 p-3">
-        <div className="h-full grid grid-cols-1 lg:grid-cols-2 gap-3">
+      <div className="flex-1 min-h-0 p-4">
+        <div className="h-full grid grid-cols-1 lg:grid-cols-2 gap-4">
           {/* Form Section */}
-          <div className="card-base p-3 hover:outline-mint overflow-y-auto">
-            <div className="flex items-center gap-2 mb-3">
-              <span className="text-lg">👤</span>
-              <h2 className="text-lg font-semibold text-black">JOB DETAILS</h2>
+          <div className="card-base p-4 hover:outline-mint overflow-y-auto">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-xl">👤</span>
+              <h2 className="text-2xl font-semibold text-black">JOB DETAILS</h2>
             </div>
             
-            <form onSubmit={handleSubmit} className="space-y-3">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="text-sm font-semibold block mb-1">Customer Name</label>
+                <label className="text-base font-semibold block mb-2">Customer Name</label>
                 <input
                   type="text"
                   value={customerName}
                   onChange={(e) => setCustomerName(e.target.value)}
-                  className="input-base text-sm py-1.5"
+                  className="input-base"
                   placeholder="Enter customer name"
                   required
                 />
               </div>
 
               <div>
-                <label className="text-sm font-semibold block mb-1">Material</label>
+                <label className="text-base font-semibold block mb-2">Material</label>
                 <select
                   value={selectedMaterialId}
                   onChange={(e) => setSelectedMaterialId(e.target.value)}
-                  className="input-base text-sm py-1.5"
+                  className="input-base"
                   required
                 >
                   {materials.map(material => (
@@ -279,12 +279,12 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
 
               {/* Measurement System Toggle */}
               <div>
-                <label className="text-sm font-semibold block mb-1">Measurement System</label>
-                <div className="flex gap-2">
+                <label className="text-base font-semibold block mb-2">Measurement System</label>
+                <div className="flex gap-4">
                   <button
                     type="button"
                     onClick={() => setMeasurementSystem('imperial')}
-                    className={`btn-base text-sm px-3 py-1.5 ${
+                    className={`btn-base ${
                       measurementSystem === 'imperial'
                         ? 'btn-mint'
                         : 'bg-white text-black outline-black hover:outline-mint hover:bg-mint hover:text-white'
@@ -295,7 +295,7 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
                   <button
                     type="button"
                     onClick={() => setMeasurementSystem('metric')}
-                    className={`btn-base text-sm px-3 py-1.5 ${
+                    className={`btn-base ${
                       measurementSystem === 'metric'
                         ? 'btn-mint'
                         : 'bg-white text-black outline-black hover:outline-mint hover:bg-mint hover:text-white'
@@ -308,20 +308,20 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
 
               {/* Length Inputs */}
               {measurementSystem === 'imperial' ? (
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-3 gap-4">
                   <div>
-                    <label className="text-sm font-semibold block mb-1">Feet</label>
+                    <label className="text-base font-semibold block mb-2">Feet</label>
                     <input
                       type="number"
                       min="0"
                       value={feet}
                       onChange={(e) => setFeet(e.target.value)}
-                      className="input-base text-sm py-1.5"
+                      className="input-base"
                       placeholder="0"
                     />
                   </div>
                   <div>
-                    <label className="text-sm font-semibold block mb-1">Inches</label>
+                    <label className="text-base font-semibold block mb-2">Inches</label>
                     <input
                       type="number"
                       min="0"
@@ -329,46 +329,46 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
                       step="0.01"
                       value={inches}
                       onChange={(e) => setInches(e.target.value)}
-                      className="input-base text-sm py-1.5"
+                      className="input-base"
                       placeholder="0"
                     />
                   </div>
                   <div>
-                    <label className="text-sm font-semibold block mb-1">Quantity</label>
+                    <label className="text-base font-semibold block mb-2">Quantity</label>
                     <input
                       type="number"
                       min="1"
                       value={quantity}
                       onChange={(e) => setQuantity(e.target.value)}
-                      className="input-base text-sm py-1.5"
+                      className="input-base"
                       placeholder="1"
                       required
                     />
                   </div>
                 </div>
               ) : (
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="text-sm font-semibold block mb-1">Length (meters)</label>
+                    <label className="text-base font-semibold block mb-2">Length (meters)</label>
                     <input
                       type="number"
                       step="0.01"
                       min="0.01"
                       value={meters}
                       onChange={(e) => setMeters(e.target.value)}
-                      className="input-base text-sm py-1.5"
+                      className="input-base"
                       placeholder="0.00"
                       required
                     />
                   </div>
                   <div>
-                    <label className="text-sm font-semibold block mb-1">Quantity</label>
+                    <label className="text-base font-semibold block mb-2">Quantity</label>
                     <input
                       type="number"
                       min="1"
                       value={quantity}
                       onChange={(e) => setQuantity(e.target.value)}
-                      className="input-base text-sm py-1.5"
+                      className="input-base"
                       placeholder="1"
                       required
                     />
@@ -378,7 +378,7 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
 
               <button
                 type="submit"
-                className="btn-base btn-coral w-full font-semibold text-sm py-2"
+                className="btn-base btn-lg btn-coral w-full font-bold"
                 disabled={!customerName || !selectedMaterialId || 
                   (measurementSystem === 'imperial' ? (feet === '' && inches === '') : meters === '') || !quantity}
                 >
@@ -388,67 +388,67 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
             </div>
 
           {/* Preview Section */}
-          <div className="space-y-3 overflow-y-auto">
+          <div className="space-y-4 overflow-y-auto">
             {/* Cost Breakdown */}
-            <div className="card-base p-3 hover:outline-coral">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-base">🧮</span>
-                <h3 className="text-base font-semibold text-black">COST BREAKDOWN</h3>
+            <div className="card-base p-4 hover:outline-coral">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-lg">🧮</span>
+                <h3 className="text-xl font-semibold text-black">COST BREAKDOWN</h3>
               </div>
               
               {selectedMaterial && length && quantity ? (
-                <div className="space-y-1">
-                  <div className="flex justify-between border-b border-gray-300 py-1">
-                    <span className="text-xs">Material Cost:</span>
-                    <span className="text-xs">${(selectedMaterial.unitCost * parseFloat(length || '0') * parseInt(quantity || '1')).toFixed(2)}</span>
+                <div className="space-y-2">
+                  <div className="flex justify-between border-b-2 border-black pb-1">
+                    <span className="text-sm">Material Cost:</span>
+                    <span className="text-sm">${(selectedMaterial.unitCost * parseFloat(length || '0') * parseInt(quantity || '1')).toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between border-b border-gray-300 py-1">
-                    <span className="text-xs">Labor ($0.25/cut):</span>
-                    <span className="text-xs">${(parseInt(quantity || '1') * 0.25).toFixed(2)}</span>
+                  <div className="flex justify-between border-b-2 border-black pb-1">
+                    <span className="text-sm">Labor ($0.25/cut):</span>
+                    <span className="text-sm">${(parseInt(quantity || '1') * 0.25).toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between border-b border-gray-300 py-1">
-                    <span className="text-xs">Waste Allowance (15%):</span>
-                    <span className="text-xs">${((selectedMaterial.unitCost * parseFloat(length || '0') * parseInt(quantity || '1')) * 0.15).toFixed(2)}</span>
+                  <div className="flex justify-between border-b-2 border-black pb-1">
+                    <span className="text-sm">Waste Allowance (15%):</span>
+                    <span className="text-sm">${((selectedMaterial.unitCost * parseFloat(length || '0') * parseInt(quantity || '1')) * 0.15).toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between border-b border-gray-300 py-1">
-                    <span className="text-xs">Markup (25%):</span>
-                    <span className="text-xs">${(calculatedCost * 0.2).toFixed(2)}</span>
+                  <div className="flex justify-between border-b-2 border-black pb-1">
+                    <span className="text-sm">Markup (25%):</span>
+                    <span className="text-sm">${(calculatedCost * 0.2).toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between text-sm font-bold pt-1 border-t-2 border-black">
+                  <div className="flex justify-between text-lg font-bold pt-2 border-t-2 border-black">
                     <span>TOTAL:</span>
                     <span>${calculatedCost.toFixed(2)}</span>
                   </div>
                 </div>
               ) : (
-                <p className="text-xs text-gray-500 text-center py-2">
+                <p className="text-sm text-gray-500 text-center py-4">
                   Fill in the form to see cost breakdown
                 </p>
               )}
             </div>
 
             {/* Job Summary */}
-            <div className="card-base p-3 hover:outline-lavender">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-base">📄</span>
-                <h3 className="text-base font-semibold text-black">JOB SUMMARY</h3>
+            <div className="card-base p-4 hover:outline-lavender">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-lg">📄</span>
+                <h3 className="text-xl font-semibold text-black">JOB SUMMARY</h3>
               </div>
               
               {customerName && selectedMaterial && length && quantity ? (
-                <div className="space-y-1">
-                  <p className="text-xs"><strong>Customer:</strong> {customerName}</p>
-                  <p className="text-xs"><strong>Material:</strong> {selectedMaterial.name}</p>
-                  <p className="text-xs">
+                <div className="space-y-2">
+                  <p className="solv-body"><strong>Customer:</strong> {customerName}</p>
+                  <p className="solv-body"><strong>Material:</strong> {selectedMaterial.name}</p>
+                  <p className="solv-body">
                     <strong>Specifications:</strong> {
                       measurementSystem === 'imperial' 
                         ? `${feet || '0'}' ${inches || '0'}" × ${quantity} pieces`
                         : `${meters || '0'}m × ${quantity} pieces`
                     }
                   </p>
-                  <p className="text-xs"><strong>Total Length:</strong> {(parseFloat(length) * parseInt(quantity)).toFixed(1)}ft</p>
-                  <p className="text-xs"><strong>Stock After Cut:</strong> {(selectedMaterial.currentStock - (parseFloat(length || '0') * parseInt(quantity || '1'))).toFixed(1)}ft</p>
+                  <p className="solv-body"><strong>Total Length:</strong> {(parseFloat(length) * parseInt(quantity)).toFixed(1)}ft</p>
+                  <p className="solv-body"><strong>Stock After Cut:</strong> {(selectedMaterial.currentStock - (parseFloat(length || '0') * parseInt(quantity || '1'))).toFixed(1)}ft</p>
                 </div>
               ) : (
-                <p className="text-xs text-gray-500 text-center py-3">
+                <p className="solv-body text-gray-500 text-center py-8">
                   Job details will appear here
                 </p>
               )}
@@ -456,14 +456,14 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
 
             {/* Stock Warning */}
             {selectedMaterial && length && quantity && (
-              <div className={`border-2 border-black rounded-lg p-2 ${
+              <div className={`border-2 border-black rounded-lg p-4 ${
                 (parseFloat(length) * parseInt(quantity)) > selectedMaterial.currentStock 
                 ? 'bg-red-50' 
                 : selectedMaterial.currentStock - (parseFloat(length) * parseInt(quantity)) < selectedMaterial.reorderThreshold
                 ? 'bg-yellow-50'
                 : 'bg-green-50'
               }`}>
-                <p className="text-xs font-semibold mb-1">
+                <p className="solv-body font-semibold mb-1">
                   {(parseFloat(length) * parseInt(quantity)) > selectedMaterial.currentStock 
                     ? '⚠️ Insufficient Stock' 
                     : selectedMaterial.currentStock - (parseFloat(length) * parseInt(quantity)) < selectedMaterial.reorderThreshold
@@ -471,7 +471,7 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
                     : '✅ Stock Available'
                   }
                 </p>
-                <p className="text-xs">
+                <p className="solv-small">
                   Current stock: {selectedMaterial.currentStock}ft | 
                   Needed: {(parseFloat(length || '0') * parseInt(quantity || '1')).toFixed(1)}ft
                 </p>
