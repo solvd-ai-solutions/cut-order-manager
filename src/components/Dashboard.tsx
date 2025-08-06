@@ -151,7 +151,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
             <CheckCircle2 className="h-5 w-5 text-[#A6FFE2]" />
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-bold text-black">{completedJobs.length}</div>
+                         <div className="text-3xl font-bold text-black inline-block px-4 py-2 rounded outline-2 outline-black outline-offset-0" style={{outlineStyle: 'solid'}}>{completedJobs.length}</div>
             <p className="text-xs text-gray-600 mt-1">
               Jobs finished today
             </p>
@@ -164,7 +164,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
             <Clock className="h-5 w-5 text-[#C5A6FF]" />
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-bold text-black">{pendingJobs.length}</div>
+                         <div className="text-3xl font-bold text-black inline-block px-4 py-2 rounded outline-2 outline-black outline-offset-0" style={{outlineStyle: 'solid'}}>{pendingJobs.length}</div>
             <p className="text-xs text-gray-600 mt-1">
               Jobs waiting to be cut
             </p>
@@ -179,9 +179,9 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
             <Package className="h-5 w-5 text-[#FF8C82]" />
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-bold text-black">
-              {reorderAlerts.length}
-            </div>
+                         <div className="text-3xl font-bold text-black inline-block px-4 py-2 rounded outline-2 outline-black outline-offset-0" style={{outlineStyle: 'solid'}}>
+               {reorderAlerts.length}
+             </div>
             <p className="text-xs text-gray-600 mt-1">
               Materials below threshold
             </p>
@@ -194,7 +194,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
             <TrendingUp className="h-5 w-5 text-[#A6FFE2]" />
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-bold text-black">${totalRevenue.toFixed(0)}</div>
+                         <div className="text-3xl font-bold text-black inline-block px-4 py-2 rounded outline-2 outline-black outline-offset-0" style={{outlineStyle: 'solid'}}>${totalRevenue.toFixed(0)}</div>
             <p className="text-xs text-gray-600 mt-1">
               From completed jobs
             </p>

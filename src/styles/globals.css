@@ -174,7 +174,7 @@
   }
   
   .card-base:hover {
-    @apply scale-105 outline-mint;
+    @apply outline-mint;
   }
   
   /* Design System Input Base */
