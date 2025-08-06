@@ -602,185 +602,165 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
   return (
     <div className="space-y-8">
       <div className="flex items-center gap-4">
-        <Button variant="ghost" onClick={onBack} className="hover:bg-gray-100">
+        <button onClick={onBack} className="btn-base bg-white text-black outline-black hover:outline-mint hover:bg-mint hover:text-white">
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back to Dashboard
-        </Button>
+        </button>
         <div>
-          <h1 className="text-3xl font-bold text-black uppercase">
-            Inventory Manager
+          <h1 className="text-4xl font-bold text-black">
+            INVENTORY MANAGER
           </h1>
-          <p className="text-gray-600">Track stock levels and manage materials</p>
+          <p className="text-lg text-gray-600">Track stock levels and manage materials</p>
         </div>
       </div>
 
       {/* Critical Reorder Alerts */}
       {reorderAlerts.length > 0 && (
-        <Alert className="border border-[#FF8C82] bg-white">
-          <AlertTriangle className="h-5 w-5 text-[#FF8C82]" />
-          <AlertDescription className="text-black">
-            <div className="flex justify-between items-center">
+        <div className="card-base p-6 hover:outline-coral">
+          <div className="flex justify-between items-center">
+            <div className="flex items-start gap-4">
+              <AlertTriangle className="h-6 w-6 text-coral flex-shrink-0 mt-1" />
               <div>
-                <span className="font-bold text-lg">
+                <h3 className="text-xl font-semibold text-black mb-2">
                   🚨 URGENT: {reorderAlerts.length} material(s) need immediate reordering!
-                </span>
-                <p className="text-sm mt-1">
+                </h3>
+                <p className="text-base text-gray-600">
                   Critical stock levels detected. Click below to generate purchase orders.
                 </p>
               </div>
-              <div className="flex gap-2">
-                <Button
-                  onClick={() => setShowPurchaseOrders(true)}
-                  className="bg-[#FF8C82] text-white border border-[#FF8C82] hover:bg-white hover:text-[#FF8C82]"
-                >
-                  <ShoppingCart className="h-4 w-4 mr-2" />
-                  ORDER NOW
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={generateReorderReport}
-                  className="text-[#FF8C82] border-[#FF8C82] hover:bg-[#FF8C82] hover:text-white"
-                >
-                  <FileText className="h-4 w-4 mr-2" />
-                  Report
-                </Button>
-              </div>
             </div>
-          </AlertDescription>
-        </Alert>
+            <div className="flex gap-3">
+              <button
+                onClick={() => setShowPurchaseOrders(true)}
+                className="btn-base btn-coral"
+              >
+                <ShoppingCart className="h-4 w-4 mr-2" />
+                ORDER NOW
+              </button>
+              <button
+                onClick={generateReorderReport}
+                className="btn-base btn-sm bg-white text-coral outline-coral hover:outline-black hover:bg-coral hover:text-white"
+              >
+                <FileText className="h-4 w-4 mr-2" />
+                Report
+              </button>
+            </div>
+          </div>
+        </div>
       )}
 
       {/* Bulk Selection Controls */}
-      <Card className="bg-white border-solv-thick border-black transition-colors duration-200 rounded-lg">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-black uppercase">
-            <CheckSquare className="h-6 w-6" />
-            Bulk Material Selection ({selectedMaterials.size} selected)
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-wrap gap-4 items-center justify-between">
-            <div className="flex gap-3">
-              <Button
-                onClick={handleSelectAll}
-                variant="outline"
-                size="sm"
-                className="border-[#C5A6FF] text-[#C5A6FF] hover:bg-[#C5A6FF] hover:text-white"
-              >
-                <CheckSquare className="h-4 w-4 mr-2" />
-                Select All ({materials.length})
-              </Button>
-              <Button
-                onClick={handleSelectLowStock}
-                variant="outline"
-                size="sm"
-                className="border-[#FF8C82] text-[#FF8C82] hover:bg-[#FF8C82] hover:text-white"
-              >
-                <AlertTriangle className="h-4 w-4 mr-2" />
-                Select Low Stock ({reorderAlerts.length})
-              </Button>
-              <Button
-                onClick={handleSelectNone}
-                variant="outline"
-                size="sm"
-                className="border-black text-black hover:bg-black hover:text-white"
-              >
-                <Square className="h-4 w-4 mr-2" />
-                Clear Selection
-              </Button>
-            </div>
-            
-            <Button
-              onClick={handleBulkReorder}
-              disabled={selectedMaterials.size === 0}
-              className="bg-[#A6FFE2] text-black border border-[#A6FFE2] hover:bg-white hover:text-[#A6FFE2] font-bold"
+      <div className="card-base p-6 hover:outline-lavender">
+        <div className="flex items-center gap-3 mb-6">
+          <CheckSquare className="h-6 w-6 text-lavender" />
+          <h3 className="text-2xl font-semibold text-black">BULK MATERIAL SELECTION ({selectedMaterials.size} selected)</h3>
+        </div>
+        <div className="flex flex-wrap gap-4 items-center justify-between">
+          <div className="flex gap-3">
+            <button
+              onClick={handleSelectAll}
+              className="btn-base btn-sm bg-white text-lavender outline-lavender hover:outline-black hover:bg-lavender hover:text-white"
             >
-              <Lock className="h-4 w-4 mr-2" />
-              Reorder Selected Inventory ({selectedMaterials.size})
-            </Button>
+              <CheckSquare className="h-4 w-4 mr-2" />
+              Select All ({materials.length})
+            </button>
+            <button
+              onClick={handleSelectLowStock}
+              className="btn-base btn-sm bg-white text-coral outline-coral hover:outline-black hover:bg-coral hover:text-white"
+            >
+              <AlertTriangle className="h-4 w-4 mr-2" />
+              Select Low Stock ({reorderAlerts.length})
+            </button>
+            <button
+              onClick={handleSelectNone}
+              className="btn-base btn-sm bg-white text-black outline-black hover:outline-black hover:bg-black hover:text-white"
+            >
+              <Square className="h-4 w-4 mr-2" />
+              Clear Selection
+            </button>
           </div>
           
-          {selectedMaterials.size > 0 && (
-            <div className="mt-4 p-6 bg-white rounded-lg border-solv border-black">
-              <h4 className="font-semibold text-black mb-2 uppercase">Selected for Reorder:</h4>
-              <div className="flex flex-wrap gap-2">
-                {getSelectedMaterials().map(material => (
-                  <Badge key={material.id} variant="outline" className="bg-white text-[#C5A6FF] border-[#C5A6FF]">
-                    {material.name} ({material.supplier})
-                  </Badge>
-                ))}
-              </div>
+          <button
+            onClick={handleBulkReorder}
+            disabled={selectedMaterials.size === 0}
+            className="btn-base btn-mint font-bold"
+          >
+            <Lock className="h-4 w-4 mr-2" />
+            Reorder Selected Inventory ({selectedMaterials.size})
+          </button>
+        </div>
+        
+        {selectedMaterials.size > 0 && (
+          <div className="mt-6 p-6 bg-white rounded-lg outline-2 outline-black outline-offset-0" style={{outlineStyle: 'solid'}}>
+            <h4 className="text-lg font-semibold text-black mb-3">SELECTED FOR REORDER:</h4>
+            <div className="flex flex-wrap gap-2">
+              {getSelectedMaterials().map(material => (
+                <span key={material.id} className="inline-flex items-center px-3 py-1 rounded-sm bg-white text-lavender text-sm font-medium outline-2 outline-lavender outline-offset-0" style={{outlineStyle: 'solid'}}>
+                  {material.name} ({material.supplier})
+                </span>
+              ))}
             </div>
-          )}
-        </CardContent>
-      </Card>
+          </div>
+        )}
+      </div>
 
       {/* Supplier Ordering Section */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Quick Order All Card */}
-        <Card className="bg-white border-solv-thick border-black transition-colors duration-200 rounded-lg cursor-pointer">
-          <CardHeader className="text-center p-6">
-            <div className="mx-auto w-16 h-16 bg-[#FF8C82] rounded-full flex items-center justify-center mb-4">
+        <div className="card-base p-6 cursor-pointer hover:outline-coral">
+          <div className="text-center">
+            <div className="mx-auto w-16 h-16 bg-coral rounded-full flex items-center justify-center mb-4">
               <Zap className="h-8 w-8 text-white" />
             </div>
-            <CardTitle className="text-black uppercase">Quick Order All</CardTitle>
-          </CardHeader>
-          <CardContent className="text-center">
-            <p className="text-gray-600 mb-4">Order all low stock items at once</p>
-            <Button
+            <h3 className="text-2xl font-semibold mb-4">QUICK ORDER ALL</h3>
+            <p className="text-base text-gray-600 mb-6">Order all low stock items at once</p>
+            <button
               onClick={() => setShowPurchaseOrders(true)}
               disabled={reorderAlerts.length === 0}
-              className="bg-[#FF8C82] text-white border border-[#FF8C82] hover:bg-white hover:text-[#FF8C82] w-full"
+              className="btn-base btn-coral w-full"
             >
               <ShoppingCart className="h-4 w-4 mr-2" />
               Order All ({reorderAlerts.length})
-            </Button>
-          </CardContent>
-        </Card>
+            </button>
+          </div>
+        </div>
 
         {/* Generate Report Card */}
-        <Card className="bg-white border-solv-thick border-black transition-colors duration-200 rounded-lg cursor-pointer">
-          <CardHeader className="text-center p-6">
-            <div className="mx-auto w-16 h-16 bg-[#C5A6FF] rounded-full flex items-center justify-center mb-4">
+        <div className="card-base p-6 cursor-pointer hover:outline-lavender">
+          <div className="text-center">
+            <div className="mx-auto w-16 h-16 bg-lavender rounded-full flex items-center justify-center mb-4">
               <FileText className="h-8 w-8 text-white" />
             </div>
-            <CardTitle className="text-black uppercase">Generate Report</CardTitle>
-          </CardHeader>
-          <CardContent className="text-center">
-            <p className="text-gray-600 mb-4">Create printable reorder report</p>
-            <Button
+            <h3 className="text-2xl font-semibold mb-4">GENERATE REPORT</h3>
+            <p className="text-base text-gray-600 mb-6">Create printable reorder report</p>
+            <button
               onClick={generateReorderReport}
               disabled={reorderAlerts.length === 0}
-              variant="outline"
-              className="border-[#C5A6FF] text-[#C5A6FF] hover:bg-[#C5A6FF] hover:text-white w-full"
+              className="btn-base bg-white text-lavender outline-lavender hover:outline-black hover:bg-lavender hover:text-white w-full"
             >
               <Download className="h-4 w-4 mr-2" />
               Generate Report
-            </Button>
-          </CardContent>
-        </Card>
+            </button>
+          </div>
+        </div>
 
         {/* Add Material Card */}
-        <Card className="bg-white border-solv-thick border-black transition-colors duration-200 rounded-lg cursor-pointer">
-          <CardHeader className="text-center p-6">
-            <div className="mx-auto w-16 h-16 bg-[#A6FFE2] rounded-full flex items-center justify-center mb-4">
-              <Plus className="h-8 w-8 text-black" />
+        <div className="card-base p-6 cursor-pointer hover:outline-mint">
+          <div className="text-center">
+            <div className="mx-auto w-16 h-16 bg-mint rounded-full flex items-center justify-center mb-4">
+              <Plus className="h-8 w-8 text-white" />
             </div>
-            <CardTitle className="text-black uppercase">Add Material</CardTitle>
-          </CardHeader>
-          <CardContent className="text-center">
-            <p className="text-gray-600 mb-4">Add new materials to inventory</p>
-            <Button
+            <h3 className="text-2xl font-semibold mb-4">ADD MATERIAL</h3>
+            <p className="text-base text-gray-600 mb-6">Add new materials to inventory</p>
+            <button
               onClick={openAddDialog}
-              variant="outline"
-              className="border-[#A6FFE2] text-[#A6FFE2] hover:bg-[#A6FFE2] hover:text-black w-full"
+              className="btn-base bg-white text-mint outline-mint hover:outline-black hover:bg-mint hover:text-white w-full"
             >
               <Plus className="h-4 w-4 mr-2" />
               Add Material
-            </Button>
-          </CardContent>
-        </Card>
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Materials List */}
