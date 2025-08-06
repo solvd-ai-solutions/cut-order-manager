@@ -685,7 +685,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
             disabled={selectedMaterials.size === 0}
             className="btn-base btn-mint font-bold"
           >
-            <Lock className="h-4 w-4 mr-2" />
+            <span className="mr-2">🔒</span>
             Reorder Selected Inventory ({selectedMaterials.size})
           </button>
         </div>
@@ -719,7 +719,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
               disabled={reorderAlerts.length === 0}
               className="btn-base btn-coral w-full"
             >
-              <ShoppingCart className="h-4 w-4 mr-2" />
+                              <span className="mr-2">🛒</span>
               Order All ({reorderAlerts.length})
             </button>
           </div>
@@ -756,7 +756,7 @@ export function InventoryManager({ onBack }: InventoryManagerProps) {
               onClick={openAddDialog}
               className="btn-base bg-white text-mint outline-mint hover:outline-black hover:bg-mint hover:text-white w-full"
             >
-              <Plus className="h-4 w-4 mr-2" />
+                              <span className="mr-2">➕</span>
               Add Material
             </button>
           </div>
