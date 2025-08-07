@@ -82,7 +82,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
         <div className="card-base p-6 cursor-pointer hover:outline-mint" onClick={onNewJob}>
           <div className="text-center">
             <div className="mx-auto w-16 h-16 bg-mint rounded-full flex items-center justify-center mb-4">
-              <Scissors className="h-8 w-8 text-white" />
+              <span className="text-3xl">✂️</span>
             </div>
             <h3 className="text-2xl font-semibold mb-4">Create Cut Job</h3>
             <p className="text-base text-gray-600 mb-6">Start a new cutting job for customers</p>
@@ -96,7 +96,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
         <div className={`card-base p-6 cursor-pointer ${reorderAlerts.length > 0 ? 'hover:outline-coral' : 'hover:outline-mint'}`} onClick={onManageInventory}>
           <div className="text-center">
             <div className={`mx-auto w-16 h-16 ${reorderAlerts.length > 0 ? 'bg-coral' : 'bg-mint'} rounded-full flex items-center justify-center mb-4 relative`}>
-              <Warehouse className="h-8 w-8 text-white" />
+              <span className="text-3xl">🏭</span>
               {reorderAlerts.length > 0 && (
                 <div className="absolute -top-2 -right-2 w-6 h-6 bg-coral rounded-full flex items-center justify-center outline-2 outline-white outline-offset-0" style={{outlineStyle: 'solid'}}>
                   <span className="text-white text-xs font-bold">{reorderAlerts.length}</span>
@@ -143,68 +143,68 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <Card className="bg-white border-solv-thick border-black rounded-lg transition-colors duration-200 rounded-lg cursor-pointer" onClick={onViewJobs}>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-black uppercase">Completed Today</CardTitle>
-                         <span className="text-lg">✅</span>
-          </CardHeader>
-          <CardContent>
-                         <div className="text-3xl font-bold text-black inline-block px-4 py-2 rounded outline-2 outline-black outline-offset-0" style={{outlineStyle: 'solid'}}>{completedJobs.length}</div>
+        <div className="card-base p-6 cursor-pointer hover:outline-mint transition-colors" onClick={onViewJobs}>
+          <div className="flex flex-row items-center justify-between pb-2">
+            <h3 className="text-sm font-medium text-black uppercase">Completed Today</h3>
+            <span className="text-lg">✅</span>
+          </div>
+          <div className="pt-2">
+            <div className="text-3xl font-bold text-black inline-block px-4 py-2 rounded outline-2 outline-black outline-offset-0" style={{outlineStyle: 'solid'}}>{completedJobs.length}</div>
             <p className="text-xs text-gray-600 mt-1">
               Jobs finished today
             </p>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
 
-        <Card className="bg-white border-solv-thick border-black rounded-lg transition-colors duration-200 rounded-lg cursor-pointer" onClick={onViewJobs}>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-black uppercase">Pending Jobs</CardTitle>
+        <div className="card-base p-6 cursor-pointer hover:outline-mint transition-colors" onClick={onViewJobs}>
+          <div className="flex flex-row items-center justify-between pb-2">
+            <h3 className="text-sm font-medium text-black uppercase">Pending Jobs</h3>
             <span className="text-lg">🕐</span>
-          </CardHeader>
-          <CardContent>
-                         <div className="text-3xl font-bold text-black inline-block px-4 py-2 rounded outline-2 outline-black outline-offset-0" style={{outlineStyle: 'solid'}}>{pendingJobs.length}</div>
+          </div>
+          <div className="pt-2">
+            <div className="text-3xl font-bold text-black inline-block px-4 py-2 rounded outline-2 outline-black outline-offset-0" style={{outlineStyle: 'solid'}}>{pendingJobs.length}</div>
             <p className="text-xs text-gray-600 mt-1">
               Jobs waiting to be cut
             </p>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
 
-        <Card className="bg-white border-solv-thick border-black rounded-lg transition-colors duration-200 cursor-pointer" onClick={onManageInventory}>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-black uppercase">
+        <div className="card-base p-6 cursor-pointer hover:outline-coral transition-colors" onClick={onManageInventory}>
+          <div className="flex flex-row items-center justify-between pb-2">
+            <h3 className="text-sm font-medium text-black uppercase">
               Low Stock Items
-            </CardTitle>
+            </h3>
             <span className="text-lg">📦</span>
-          </CardHeader>
-          <CardContent>
-                         <div className="text-3xl font-bold text-black inline-block px-4 py-2 rounded outline-2 outline-black outline-offset-0" style={{outlineStyle: 'solid'}}>
-               {reorderAlerts.length}
-             </div>
+          </div>
+          <div className="pt-2">
+            <div className="text-3xl font-bold text-black inline-block px-4 py-2 rounded outline-2 outline-black outline-offset-0" style={{outlineStyle: 'solid'}}>
+              {reorderAlerts.length}
+            </div>
             <p className="text-xs text-gray-600 mt-1">
               Materials below threshold
             </p>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
 
-        <Card className="bg-white border-solv-thick border-black rounded-lg transition-colors duration-200">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-black uppercase">Today's Revenue</CardTitle>
+        <div className="card-base p-6 transition-colors">
+          <div className="flex flex-row items-center justify-between pb-2">
+            <h3 className="text-sm font-medium text-black uppercase">Today's Revenue</h3>
             <span className="text-lg">📈</span>
-          </CardHeader>
-          <CardContent>
-                         <div className="text-3xl font-bold text-black inline-block px-4 py-2 rounded outline-2 outline-black outline-offset-0" style={{outlineStyle: 'solid'}}>${totalRevenue.toFixed(0)}</div>
+          </div>
+          <div className="pt-2">
+            <div className="text-3xl font-bold text-black inline-block px-4 py-2 rounded outline-2 outline-black outline-offset-0" style={{outlineStyle: 'solid'}}>${totalRevenue.toFixed(0)}</div>
             <p className="text-xs text-gray-600 mt-1">
               From completed jobs
             </p>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </div>
 
       {/* Inventory Quick Actions */}
       {reorderAlerts.length > 0 && (
         <div className="card-base p-6 hover:outline-coral">
           <div className="flex items-center gap-3 mb-4">
-            <ShoppingCart className="h-6 w-6 text-coral" />
+            <span className="text-xl">🛒</span>
             <h3 className="text-2xl font-semibold text-black">INVENTORY ACTIONS REQUIRED</h3>
           </div>
           <div className="flex flex-wrap gap-4 items-center justify-between">
@@ -221,14 +221,14 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
                 onClick={onManageInventory}
                 className="btn-base btn-coral"
               >
-                <ShoppingCart className="h-4 w-4 mr-2" />
+                <span className="mr-2">🛒</span>
                 Order Supplies
               </button>
               <button
                 onClick={onManageInventory}
                 className="btn-base bg-white text-coral outline-coral hover:outline-black hover:bg-coral hover:text-white"
               >
-                <Warehouse className="h-4 w-4 mr-2" />
+                <span className="mr-2">🏭</span>
                 Manage Inventory
               </button>
             </div>

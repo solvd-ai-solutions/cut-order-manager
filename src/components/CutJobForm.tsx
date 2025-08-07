@@ -435,20 +435,20 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
               
               {customerName && selectedMaterial && length && quantity ? (
                 <div className="space-y-2">
-                  <p className="solv-body"><strong>Customer:</strong> {customerName}</p>
-                  <p className="solv-body"><strong>Material:</strong> {selectedMaterial.name}</p>
-                  <p className="solv-body">
+                  <p className="text-base"><strong>Customer:</strong> {customerName}</p>
+                  <p className="text-base"><strong>Material:</strong> {selectedMaterial.name}</p>
+                  <p className="text-base">
                     <strong>Specifications:</strong> {
                       measurementSystem === 'imperial' 
                         ? `${feet || '0'}' ${inches || '0'}" × ${quantity} pieces`
                         : `${meters || '0'}m × ${quantity} pieces`
                     }
                   </p>
-                  <p className="solv-body"><strong>Total Length:</strong> {(parseFloat(length) * parseInt(quantity)).toFixed(1)}ft</p>
-                  <p className="solv-body"><strong>Stock After Cut:</strong> {(selectedMaterial.currentStock - (parseFloat(length || '0') * parseInt(quantity || '1'))).toFixed(1)}ft</p>
+                  <p className="text-base"><strong>Total Length:</strong> {(parseFloat(length) * parseInt(quantity)).toFixed(1)}ft</p>
+                  <p className="text-base"><strong>Stock After Cut:</strong> {(selectedMaterial.currentStock - (parseFloat(length || '0') * parseInt(quantity || '1'))).toFixed(1)}ft</p>
                 </div>
               ) : (
-                <p className="solv-body text-gray-500 text-center py-8">
+                <p className="text-base text-gray-500 text-center py-8">
                   Job details will appear here
                 </p>
               )}
@@ -463,7 +463,7 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
                 ? 'bg-yellow-50'
                 : 'bg-green-50'
               }`}>
-                <p className="solv-body font-semibold mb-1">
+                <p className="text-base font-semibold mb-1">
                   {(parseFloat(length) * parseInt(quantity)) > selectedMaterial.currentStock 
                     ? '⚠️ Insufficient Stock' 
                     : selectedMaterial.currentStock - (parseFloat(length) * parseInt(quantity)) < selectedMaterial.reorderThreshold
@@ -471,7 +471,7 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
                     : '✅ Stock Available'
                   }
                 </p>
-                <p className="solv-small">
+                <p className="text-sm">
                   Current stock: {selectedMaterial.currentStock}ft | 
                   Needed: {(parseFloat(length || '0') * parseInt(quantity || '1')).toFixed(1)}ft
                 </p>

@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Defensive CSS to prevent external styling conflicts */
+#root {
+  all: initial;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #000000;
+  background: #FFFFFF;
+}
+
+#root * {
+  box-sizing: border-box;
+}
+
 /* Solvd AI Solutions Design System Variables */
 :root {
   /* Primary Colors */
