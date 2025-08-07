@@ -15,12 +15,22 @@
   border-color: rgb(209 213 219) !important; /* gray-300 equivalent */
 }
 
+*, *::before, *::after {
+  border-color: rgba(var(--tw-border-color) / var(--tw-border-opacity));
+  border-width: var(--tw-border-width);
+  border-style: solid;   /* just in case */
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Solvd AI Solutions Design System Variables */
 :root {
+  --tw-border-opacity: 1;
+  --tw-border-color: 0 0 0; /* pure black */
+  --tw-border-width: 2px;
+  
   /* Primary Colors */
   --color-black: #000000;
   --color-white: #FFFFFF;
