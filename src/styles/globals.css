@@ -1,18 +1,452 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* COMPLETE CSS RESET AND ISOLATION */
+* {
+  box-sizing: border-box !important;
+}
 
-/* Defensive CSS to prevent external styling conflicts */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100% !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* COMPLETE APP ISOLATION */
 #root {
-  all: initial;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color: #000000;
-  background: #FFFFFF;
+  all: unset !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+  color: #000000 !important;
+  background: #FFFFFF !important;
+  overflow: hidden !important;
 }
 
 #root * {
-  box-sizing: border-box;
+  box-sizing: border-box !important;
+  font-family: inherit !important;
 }
+
+/* FORCE RESET ALL INHERITED STYLES */
+#root div,
+#root span,
+#root p,
+#root h1,
+#root h2,
+#root h3,
+#root h4,
+#root h5,
+#root h6,
+#root button,
+#root input,
+#root select,
+#root textarea,
+#root label {
+  all: unset !important;
+  display: block !important;
+  font-family: inherit !important;
+  color: inherit !important;
+  background: transparent !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#root button {
+  cursor: pointer !important;
+}
+
+#root input,
+#root select,
+#root textarea {
+  display: block !important;
+}
+
+#root span {
+  display: inline !important;
+}
+
+#root img {
+  display: block !important;
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* AGGRESSIVE TAILWIND OVERRIDES */
+#root .bg-white {
+  background-color: #FFFFFF !important;
+}
+
+#root .bg-black {
+  background-color: #000000 !important;
+}
+
+#root .bg-mint {
+  background-color: #4FB3A6 !important;
+}
+
+#root .bg-coral {
+  background-color: #F29E8E !important;
+}
+
+#root .bg-lavender {
+  background-color: #C5A3E0 !important;
+}
+
+#root .text-white {
+  color: #FFFFFF !important;
+}
+
+#root .text-black {
+  color: #000000 !important;
+}
+
+#root .text-gray-600 {
+  color: #666666 !important;
+}
+
+#root .text-gray-500 {
+  color: #6B7280 !important;
+}
+
+#root .text-red-600 {
+  color: #DC2626 !important;
+}
+
+#root .border-black {
+  border-color: #000000 !important;
+}
+
+#root .border-2 {
+  border-width: 2px !important;
+}
+
+#root .rounded-lg {
+  border-radius: 8px !important;
+}
+
+#root .outline-2 {
+  outline-width: 2px !important;
+}
+
+#root .outline-black {
+  outline-color: #000000 !important;
+}
+
+#root .outline-mint {
+  outline-color: #4FB3A6 !important;
+}
+
+#root .outline-coral {
+  outline-color: #F29E8E !important;
+}
+
+#root .outline-lavender {
+  outline-color: #C5A3E0 !important;
+}
+
+#root .outline-offset-0 {
+  outline-offset: 0px !important;
+}
+
+#root .font-bold {
+  font-weight: 700 !important;
+}
+
+#root .font-semibold {
+  font-weight: 600 !important;
+}
+
+#root .font-medium {
+  font-weight: 500 !important;
+}
+
+#root .text-4xl {
+  font-size: 32px !important;
+  line-height: 40px !important;
+}
+
+#root .text-2xl {
+  font-size: 24px !important;
+  line-height: 32px !important;
+}
+
+#root .text-xl {
+  font-size: 20px !important;
+  line-height: 28px !important;
+}
+
+#root .text-lg {
+  font-size: 18px !important;
+  line-height: 28px !important;
+}
+
+#root .text-base {
+  font-size: 16px !important;
+  line-height: 24px !important;
+}
+
+#root .text-sm {
+  font-size: 14px !important;
+  line-height: 20px !important;
+}
+
+#root .text-xs {
+  font-size: 12px !important;
+  line-height: 16px !important;
+}
+
+#root .text-3xl {
+  font-size: 28px !important;
+  line-height: 36px !important;
+}
+
+#root .h-screen {
+  height: 100vh !important;
+}
+
+#root .w-full {
+  width: 100% !important;
+}
+
+#root .flex {
+  display: flex !important;
+}
+
+#root .flex-col {
+  flex-direction: column !important;
+}
+
+#root .items-center {
+  align-items: center !important;
+}
+
+#root .justify-center {
+  justify-content: center !important;
+}
+
+#root .justify-between {
+  justify-content: space-between !important;
+}
+
+#root .gap-2 {
+  gap: 8px !important;
+}
+
+#root .gap-4 {
+  gap: 16px !important;
+}
+
+#root .gap-6 {
+  gap: 24px !important;
+}
+
+#root .p-6 {
+  padding: 24px !important;
+}
+
+#root .p-4 {
+  padding: 16px !important;
+}
+
+#root .p-8 {
+  padding: 32px !important;
+}
+
+#root .px-6 {
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
+
+#root .py-2 {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+
+#root .py-3 {
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+}
+
+#root .py-6 {
+  padding-top: 24px !important;
+  padding-bottom: 24px !important;
+}
+
+#root .mb-1 {
+  margin-bottom: 4px !important;
+}
+
+#root .mb-2 {
+  margin-bottom: 8px !important;
+}
+
+#root .mb-4 {
+  margin-bottom: 16px !important;
+}
+
+#root .mb-6 {
+  margin-bottom: 24px !important;
+}
+
+#root .mt-1 {
+  margin-top: 4px !important;
+}
+
+#root .overflow-hidden {
+  overflow: hidden !important;
+}
+
+#root .overflow-y-auto {
+  overflow-y: auto !important;
+}
+
+#root .cursor-pointer {
+  cursor: pointer !important;
+}
+
+#root .transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-duration: 200ms !important;
+}
+
+#root .transition-all {
+  transition-property: all !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-duration: 200ms !important;
+}
+
+#root .hover\\:outline-mint:hover {
+  outline-color: #4FB3A6 !important;
+}
+
+#root .hover\\:outline-coral:hover {
+  outline-color: #F29E8E !important;
+}
+
+#root .hover\\:outline-lavender:hover {
+  outline-color: #C5A3E0 !important;
+}
+
+#root .hover\\:bg-gray-50:hover {
+  background-color: #F9FAFB !important;
+}
+
+#root .text-center {
+  text-align: center !important;
+}
+
+#root .text-right {
+  text-align: right !important;
+}
+
+#root .h-full {
+  height: 100% !important;
+}
+
+#root .w-16 {
+  width: 64px !important;
+}
+
+#root .h-16 {
+  height: 64px !important;
+}
+
+#root .mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#root .inline-flex {
+  display: inline-flex !important;
+}
+
+#root .block {
+  display: block !important;
+}
+
+#root .inline-block {
+  display: inline-block !important;
+}
+
+#root .inline {
+  display: inline !important;
+}
+
+#root .grid {
+  display: grid !important;
+}
+
+#root .grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+}
+
+#root .md\\:grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+#root .md\\:grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+}
+
+#root .lg\\:grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+
+#root .lg\\:col-span-3 {
+  grid-column: span 3 / span 3 !important;
+}
+
+#root .min-h-0 {
+  min-height: 0px !important;
+}
+
+#root .min-h-\\[120px\\] {
+  min-height: 120px !important;
+}
+
+#root .h-\\[calc\\(100vh-48px\\)\\] {
+  height: calc(100vh - 48px) !important;
+}
+
+#root .flex-1 {
+  flex: 1 1 0% !important;
+}
+
+#root .flex-shrink-0 {
+  flex-shrink: 0 !important;
+}
+
+#root .leading-none {
+  line-height: 1 !important;
+}
+
+#root .leading-none.mb-2 {
+  margin-bottom: 8px !important;
+}
+
+#root .space-y-2 > * + * {
+  margin-top: 8px !important;
+}
+
+#root .space-y-4 > * + * {
+  margin-top: 16px !important;
+}
+
+#root .space-y-6 > * + * {
+  margin-top: 24px !important;
+}
+
+#root .space-y-8 > * + * {
+  margin-top: 32px !important;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* Solvd AI Solutions Design System Variables */
 :root {
