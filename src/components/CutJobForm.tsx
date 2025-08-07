@@ -456,7 +456,7 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
 
             {/* Stock Warning */}
             {selectedMaterial && length && quantity && (
-              <div className={`border-2 border-black rounded-lg p-4 ${
+              <div className={`card-base p-4 ${
                 (parseFloat(length) * parseInt(quantity)) > selectedMaterial.currentStock 
                 ? 'bg-red-50' 
                 : selectedMaterial.currentStock - (parseFloat(length) * parseInt(quantity)) < selectedMaterial.reorderThreshold
