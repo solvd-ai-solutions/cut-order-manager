@@ -9,6 +9,12 @@
   box-sizing: border-box !important;
 }
 
+/* CSS Override to force border opacity and color */
+#root * {
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(209 213 219) !important; /* gray-300 equivalent */
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
