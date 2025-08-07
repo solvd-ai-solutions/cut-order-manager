@@ -124,11 +124,11 @@ export function JobManager({ onBack }: JobManagerProps) {
                   filteredJobs.map(job => (
                     <div
                       key={job.id}
-                      className={`border rounded-xl p-5 cursor-pointer transition-all duration-300 hover:shadow-md ${
-                        selectedJob?.id === job.id 
-                          ? 'bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200 shadow-md' 
-                          : 'hover:bg-gray-50 border-gray-200'
-                      }`}
+                                    className={`border-2 border-black rounded-xl p-5 cursor-pointer transition-all duration-300 hover:shadow-md ${
+                selectedJob?.id === job.id 
+                  ? 'bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-black shadow-md'
+                  : 'hover:bg-gray-50 border-2 border-black'
+              }`}
                       onClick={() => setSelectedJob(job)}
                     >
                       <div className="flex justify-between items-start mb-3">
@@ -136,7 +136,7 @@ export function JobManager({ onBack }: JobManagerProps) {
                           <h3 className="font-bold text-lg text-gray-900">{job.customerName}</h3>
                           <p className="text-sm text-gray-500">Job #{job.id}</p>
                           {job.orderCode && (
-                            <p className="text-sm font-mono bg-white px-2 py-1 rounded border mt-1 inline-block">
+                            <p className="text-sm font-mono bg-white px-2 py-1 rounded border-2 border-black mt-1 inline-block">
                               {job.orderCode}
                             </p>
                           )}
@@ -229,7 +229,7 @@ export function JobManager({ onBack }: JobManagerProps) {
                           <span className="text-green-700">Waste:</span>
                           <span className="font-semibold">${selectedJob.wasteCost.toFixed(2)}</span>
                         </div>
-                        <div className="flex justify-between pt-2 border-t border-green-200">
+                        <div className="flex justify-between pt-2 border-t-2 border-black">
                           <span className="font-bold text-green-800">Total:</span>
                           <span className="font-bold text-green-800">${selectedJob.totalCost.toFixed(2)}</span>
                         </div>

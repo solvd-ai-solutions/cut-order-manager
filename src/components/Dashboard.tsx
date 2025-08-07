@@ -271,7 +271,7 @@ export function Dashboard({ onNewJob, onManageInventory, onViewJobs }: Dashboard
                       </p>
                       <p className="text-base text-gray-600">Total: ${job.totalCost.toFixed(2)}</p>
                       {job.orderCode && (
-                        <p className="text-sm font-mono bg-gray-100 px-3 py-2 rounded border">
+                        <p className="text-sm font-mono bg-gray-100 px-3 py-2 rounded border-2 border-black">
                           Code: {job.orderCode}
                         </p>
                       )}

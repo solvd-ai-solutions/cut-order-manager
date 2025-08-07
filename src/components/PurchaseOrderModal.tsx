@@ -347,7 +347,7 @@ export function PurchaseOrderModal({ isOpen, onClose, materials, reorderMaterial
                   <CardContent className="p-6">
                     <div className="space-y-4">
                       {supplierOrder.items.map((item, itemIndex) => (
-                        <div key={item.material.id} className="border rounded-lg p-4 bg-gray-50">
+                        <div key={item.material.id} className="border-2 border-black rounded-lg p-4 bg-gray-50">
                           <div className="grid grid-cols-1 md:grid-cols-6 gap-4 items-center">
                             <div className="md:col-span-2">
                               <h4 className="font-semibold">{item.material.name}</h4>
@@ -425,7 +425,7 @@ export function PurchaseOrderModal({ isOpen, onClose, materials, reorderMaterial
               ))}
               
               {/* Summary Actions */}
-              <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
+                              <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-black">
                 <CardContent className="p-6">
                   <div className="flex justify-between items-center">
                     <div>
