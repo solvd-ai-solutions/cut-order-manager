@@ -74,12 +74,15 @@ export default {
         'solv': '8px',
       },
       borderWidth: {
-        'DEFAULT': '1px',
+        'DEFAULT': '2px',
         '2': '2px',     // Design system signature outline width
         '3': '3px',
         // Legacy aliases
         'solv': '2px',
         'solv-thick': '3px',
+      },
+      borderColor: {
+        'DEFAULT': '#000000',
       },
       outlineWidth: {
         '2': '2px',     // Design system signature outline
