@@ -33,8 +33,8 @@ function PaginationContent({
   );
 }
 
-function PaginationItem({ ...props }: React.ComponentProps<"li">) {
-  return <li data-slot="pagination-item" {...props} />;
+function PaginationItem({ className, ...props }: React.ComponentProps<"li">) {
+  return <li data-slot="pagination-item" className={cn("border-b-2 border-black", className)} {...props} />;
 }
 
 type PaginationLinkProps = {
