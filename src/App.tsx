@@ -29,24 +29,9 @@ export default function App() {
     }
   };
 
-  // ROBUST ISOLATION WRAPPER
-  const appStyle = {
-    width: '100%',
-    height: '100vh',
-    backgroundColor: '#FFFFFF',
-    color: '#000000',
-    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-    fontSize: '16px',
-    lineHeight: '1.5',
-    overflow: 'hidden',
-    margin: '0',
-    padding: '0',
-    boxSizing: 'border-box' as const,
-  };
-
   if (currentView !== 'dashboard') {
     return (
-      <div style={appStyle} className="h-screen bg-white text-black flex flex-col overflow-hidden">
+      <div className="h-screen bg-white text-black flex flex-col overflow-hidden">
         {/* Demo Banner */}
         <div className="bg-lavender border-b-2 border-black px-6 py-2 flex items-center justify-center gap-2 flex-shrink-0">
           <span className="text-black text-sm">⚡</span>
@@ -63,7 +48,7 @@ export default function App() {
   }
 
   return (
-    <div style={appStyle} className="h-screen bg-white text-black overflow-hidden">
+    <div className="h-screen bg-white text-black overflow-hidden">
       {/* Demo Banner */}
       <div className="bg-lavender border-b-2 border-black px-6 py-2 flex items-center justify-center gap-2">
         <span className="text-black text-sm">⚡</span>
