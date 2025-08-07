@@ -319,19 +319,19 @@ html, body {
   transition-duration: 200ms !important;
 }
 
-#root .hover\\:outline-mint:hover {
+#root .hover\:outline-mint:hover {
   outline-color: #4FB3A6 !important;
 }
 
-#root .hover\\:outline-coral:hover {
+#root .hover\:outline-coral:hover {
   outline-color: #F29E8E !important;
 }
 
-#root .hover\\:outline-lavender:hover {
+#root .hover\:outline-lavender:hover {
   outline-color: #C5A3E0 !important;
 }
 
-#root .hover\\:bg-gray-50:hover {
+#root .hover\:bg-gray-50:hover {
   background-color: #F9FAFB !important;
 }
 
@@ -384,19 +384,19 @@ html, body {
   grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
 }
 
-#root .md\\:grid-cols-2 {
+#root .md\:grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
 }
 
-#root .md\\:grid-cols-4 {
+#root .md\:grid-cols-4 {
   grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
 }
 
-#root .lg\\:grid-cols-3 {
+#root .lg\:grid-cols-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
 }
 
-#root .lg\\:col-span-3 {
+#root .lg\:col-span-3 {
   grid-column: span 3 / span 3 !important;
 }
 
@@ -404,11 +404,11 @@ html, body {
   min-height: 0px !important;
 }
 
-#root .min-h-\\[120px\\] {
+#root .min-h-\[120px\] {
   min-height: 120px !important;
 }
 
-#root .h-\\[calc\\(100vh-48px\\)\\] {
+#root .h-\[calc\(100vh-48px\)\] {
   height: calc(100vh - 48px) !important;
 }
 
