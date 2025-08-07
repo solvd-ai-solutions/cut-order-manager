@@ -397,28 +397,28 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
               </div>
               
               {selectedMaterial && length && quantity ? (
-                <div className="space-y-2">
-                  <div className="flex justify-between border-b-2 border-black pb-1" data-testid="cost-row">
+                <ul className="space-y-2">
+                  <li className="flex justify-between border-b-2 border-black pb-1 cost-row" data-testid="cost-row">
                     <span className="text-sm">Material Cost:</span>
                     <span className="text-sm">${(selectedMaterial.unitCost * parseFloat(length || '0') * parseInt(quantity || '1')).toFixed(2)}</span>
-                  </div>
-                  <div className="flex justify-between border-b-2 border-black pb-1" data-testid="cost-row">
+                  </li>
+                  <li className="flex justify-between border-b-2 border-black pb-1 cost-row" data-testid="cost-row">
                     <span className="text-sm">Labor ($0.25/cut):</span>
                     <span className="text-sm">${(parseInt(quantity || '1') * 0.25).toFixed(2)}</span>
-                  </div>
-                  <div className="flex justify-between border-b-2 border-black pb-1" data-testid="cost-row">
+                  </li>
+                  <li className="flex justify-between border-b-2 border-black pb-1 cost-row" data-testid="cost-row">
                     <span className="text-sm">Waste Allowance (15%):</span>
                     <span className="text-sm">${((selectedMaterial.unitCost * parseFloat(length || '0') * parseInt(quantity || '1')) * 0.15).toFixed(2)}</span>
-                  </div>
-                  <div className="flex justify-between border-b-2 border-black pb-1" data-testid="cost-row">
+                  </li>
+                  <li className="flex justify-between border-b-2 border-black pb-1 cost-row" data-testid="cost-row">
                     <span className="text-sm">Markup (25%):</span>
                     <span className="text-sm">${(calculatedCost * 0.2).toFixed(2)}</span>
-                  </div>
-                  <div className="flex justify-between text-lg font-bold pt-2 border-t-2 border-black">
+                  </li>
+                  <li className="flex justify-between text-lg font-bold pt-2 border-t-2 border-black">
                     <span>TOTAL:</span>
                     <span>${calculatedCost.toFixed(2)}</span>
-                  </div>
-                </div>
+                  </li>
+                </ul>
               ) : (
                 <p className="text-sm text-gray-500 text-center py-4">
                   Fill in the form to see cost breakdown
