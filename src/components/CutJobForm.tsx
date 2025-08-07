@@ -434,19 +434,19 @@ export function CutJobForm({ onBack, onJobCreated }: CutJobFormProps) {
               </div>
               
               {customerName && selectedMaterial && length && quantity ? (
-                <div className="space-y-2">
-                  <p className="text-base"><strong>Customer:</strong> {customerName}</p>
-                  <p className="text-base"><strong>Material:</strong> {selectedMaterial.name}</p>
-                  <p className="text-base">
+                <ul className="space-y-2">
+                  <li className="text-base job-row"><strong>Customer:</strong> {customerName}</li>
+                  <li className="text-base job-row"><strong>Material:</strong> {selectedMaterial.name}</li>
+                  <li className="text-base job-row">
                     <strong>Specifications:</strong> {
                       measurementSystem === 'imperial' 
                         ? `${feet || '0'}' ${inches || '0'}" × ${quantity} pieces`
                         : `${meters || '0'}m × ${quantity} pieces`
                     }
-                  </p>
-                  <p className="text-base"><strong>Total Length:</strong> {(parseFloat(length) * parseInt(quantity)).toFixed(1)}ft</p>
-                  <p className="text-base"><strong>Stock After Cut:</strong> {(selectedMaterial.currentStock - (parseFloat(length || '0') * parseInt(quantity || '1'))).toFixed(1)}ft</p>
-                </div>
+                  </li>
+                  <li className="text-base job-row"><strong>Total Length:</strong> {(parseFloat(length) * parseInt(quantity)).toFixed(1)}ft</li>
+                  <li className="text-base job-row"><strong>Stock After Cut:</strong> {(selectedMaterial.currentStock - (parseFloat(length || '0') * parseInt(quantity || '1'))).toFixed(1)}ft</li>
+                </ul>
               ) : (
                 <p className="text-base text-gray-500 text-center py-8">
                   Job details will appear here
