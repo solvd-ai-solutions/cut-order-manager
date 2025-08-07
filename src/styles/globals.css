@@ -25,6 +25,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* === FORCE VISIBLE ROW LINES === */
+.cost-row,
+.cost-row + .cost-row,
+.job-row,
+.job-row + .job-row {
+  border-bottom: 2px solid #000 !important;
+}
+
 /* Solvd AI Solutions Design System Variables */
 :root {
   --tw-border-opacity: 1;
